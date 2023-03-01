@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -45,7 +44,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -99,9 +104,6 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -109,11 +111,6 @@
     <Reference Include="Antlr3.Runtime">
       <Private>True</Private>
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -127,21 +124,163 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\images\dashboard\circle.png" />
+    <Content Include="Content\images\dashboard\circle.svg" />
+    <Content Include="Content\images\dashboard\img_1.jpg" />
+    <Content Include="Content\images\dashboard\img_2.jpg" />
+    <Content Include="Content\images\dashboard\img_3.jpg" />
+    <Content Include="Content\images\dashboard\img_4.jpg" />
+    <Content Include="Content\images\faces-clipart\pic-1.png" />
+    <Content Include="Content\images\faces-clipart\pic-2.png" />
+    <Content Include="Content\images\faces-clipart\pic-3.png" />
+    <Content Include="Content\images\faces-clipart\pic-4.png" />
+    <Content Include="Content\images\faces\face1.jpg" />
+    <Content Include="Content\images\faces\face10.jpg" />
+    <Content Include="Content\images\faces\face11.jpg" />
+    <Content Include="Content\images\faces\face12.jpg" />
+    <Content Include="Content\images\faces\face13.jpg" />
+    <Content Include="Content\images\faces\face14.jpg" />
+    <Content Include="Content\images\faces\face15.jpg" />
+    <Content Include="Content\images\faces\face16.jpg" />
+    <Content Include="Content\images\faces\face17.jpg" />
+    <Content Include="Content\images\faces\face18.jpg" />
+    <Content Include="Content\images\faces\face19.jpg" />
+    <Content Include="Content\images\faces\face2.jpg" />
+    <Content Include="Content\images\faces\face20.jpg" />
+    <Content Include="Content\images\faces\face21.jpg" />
+    <Content Include="Content\images\faces\face22.jpg" />
+    <Content Include="Content\images\faces\face23.jpg" />
+    <Content Include="Content\images\faces\face24.jpg" />
+    <Content Include="Content\images\faces\face25.jpg" />
+    <Content Include="Content\images\faces\face26.jpg" />
+    <Content Include="Content\images\faces\face27.jpg" />
+    <Content Include="Content\images\faces\face3.jpg" />
+    <Content Include="Content\images\faces\face4.jpg" />
+    <Content Include="Content\images\faces\face5.jpg" />
+    <Content Include="Content\images\faces\face6.jpg" />
+    <Content Include="Content\images\faces\face7.jpg" />
+    <Content Include="Content\images\faces\face8.jpg" />
+    <Content Include="Content\images\faces\face9.jpg" />
+    <Content Include="Content\images\favicon.ico" />
+    <Content Include="Content\images\favicon.png" />
+    <Content Include="Content\images\logo-mini.svg" />
+    <Content Include="Content\images\logo.svg" />
+    <Content Include="Content\images\sprites\blue.png" />
+    <Content Include="Content\images\sprites\dark.png" />
+    <Content Include="Content\images\sprites\flag.png" />
+    <Content Include="Content\images\sprites\green.png" />
+    <Content Include="Content\images\sprites\jsgrid-icons.png" />
+    <Content Include="Content\images\sprites\red.png" />
+    <Content Include="Content\images\sprites\yellow.png" />
+    <Content Include="Content\js\chart.js" />
+    <Content Include="Content\js\dashboard.js" />
+    <Content Include="Content\js\file-upload.js" />
+    <Content Include="Content\js\hoverable-collapse.js" />
+    <Content Include="Content\js\jquery.cookie.js" />
+    <Content Include="Content\js\misc.js" />
+    <Content Include="Content\js\off-canvas.js" />
+    <Content Include="Content\js\todo.js" />
+    <Content Include="Content\js\todolist.js" />
+    <Content Include="Content\vendors\chart.js\Chart.min.js" />
+    <Content Include="Content\vendors\css\vendor.bundle.base.css" />
+    <Content Include="Content\vendors\js\vendor.bundle.base.js" />
+    <Content Include="Content\vendors\mdi\css\materialdesignicons.min.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="Scripts\jquery-3.4.1.js" />
-    <Content Include="Scripts\jquery-3.4.1.min.js" />
-    <Content Include="Scripts\jquery-3.4.1.slim.js" />
-    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="Content\css\style.css.map" />
+    <Content Include="Content\fonts\Ubuntu\Ubuntu-Bold.eot" />
+    <Content Include="Content\fonts\Ubuntu\Ubuntu-Bold.ttf" />
+    <Content Include="Content\fonts\Ubuntu\Ubuntu-Bold.woff" />
+    <Content Include="Content\fonts\Ubuntu\Ubuntu-Bold.woff2" />
+    <Content Include="Content\fonts\Ubuntu\Ubuntu-Light.eot" />
+    <Content Include="Content\fonts\Ubuntu\Ubuntu-Light.ttf" />
+    <Content Include="Content\fonts\Ubuntu\Ubuntu-Light.woff" />
+    <Content Include="Content\fonts\Ubuntu\Ubuntu-Light.woff2" />
+    <Content Include="Content\fonts\Ubuntu\Ubuntu-Medium.eot" />
+    <Content Include="Content\fonts\Ubuntu\Ubuntu-Medium.ttf" />
+    <Content Include="Content\fonts\Ubuntu\Ubuntu-Medium.woff" />
+    <Content Include="Content\fonts\Ubuntu\Ubuntu-Medium.woff2" />
+    <Content Include="Content\fonts\Ubuntu\Ubuntu-Regular.eot" />
+    <Content Include="Content\fonts\Ubuntu\Ubuntu-Regular.ttf" />
+    <Content Include="Content\fonts\Ubuntu\Ubuntu-Regular.woff" />
+    <Content Include="Content\fonts\Ubuntu\Ubuntu-Regular.woff2" />
+    <Content Include="Content\scss\components\_badges.scss" />
+    <Content Include="Content\scss\components\_bootstrap-progress.scss" />
+    <Content Include="Content\scss\components\_breadcrumbs.scss" />
+    <Content Include="Content\scss\components\_buttons.scss" />
+    <Content Include="Content\scss\components\_cards.scss" />
+    <Content Include="Content\scss\components\_checkbox-radio.scss" />
+    <Content Include="Content\scss\components\_dropdown.scss" />
+    <Content Include="Content\scss\components\_forms.scss" />
+    <Content Include="Content\scss\components\_icons.scss" />
+    <Content Include="Content\scss\components\_lists.scss" />
+    <Content Include="Content\scss\components\_preview.scss" />
+    <Content Include="Content\scss\components\_tables.scss" />
+    <Content Include="Content\scss\components\_todo-list.scss" />
+    <Content Include="Content\scss\landing-screens\_auth.scss" />
+    <Content Include="Content\scss\mixins\_animation.scss" />
+    <Content Include="Content\scss\mixins\_background.scss" />
+    <Content Include="Content\scss\mixins\_badges.scss" />
+    <Content Include="Content\scss\mixins\_blockqoute.scss" />
+    <Content Include="Content\scss\mixins\_breadcrumbs.scss" />
+    <Content Include="Content\scss\mixins\_buttons.scss" />
+    <Content Include="Content\scss\mixins\_cards.scss" />
+    <Content Include="Content\scss\mixins\_misc.scss" />
+    <Content Include="Content\scss\mixins\_pagination.scss" />
+    <Content Include="Content\scss\mixins\_popovers.scss" />
+    <Content Include="Content\scss\mixins\_text.scss" />
+    <Content Include="Content\scss\mixins\_tooltips.scss" />
+    <Content Include="Content\scss\style.scss" />
+    <Content Include="Content\scss\_dashboard.scss" />
+    <Content Include="Content\scss\_demo.scss" />
+    <Content Include="Content\scss\_fonts.scss" />
+    <Content Include="Content\scss\_footer.scss" />
+    <Content Include="Content\scss\_functions.scss" />
+    <Content Include="Content\scss\_layouts.scss" />
+    <Content Include="Content\scss\_misc.scss" />
+    <Content Include="Content\scss\_navbar.scss" />
+    <Content Include="Content\scss\_reset.scss" />
+    <Content Include="Content\scss\_sidebar.scss" />
+    <Content Include="Content\scss\_typography.scss" />
+    <Content Include="Content\scss\_utilities.scss" />
+    <Content Include="Content\scss\_variables.scss" />
+    <Content Include="Content\scss\_vertical-wrapper.scss" />
+    <Content Include="Content\scss\_widget-grid.scss" />
+    <Content Include="Content\vendors\js\bootstrap.min.js.map" />
+    <Content Include="Content\vendors\mdi\css\materialdesignicons.min.css.map" />
+    <Content Include="Content\vendors\mdi\fonts\materialdesignicons-webfont.eot" />
+    <Content Include="Content\vendors\mdi\fonts\materialdesignicons-webfont.ttf" />
+    <Content Include="Content\vendors\mdi\fonts\materialdesignicons-webfont.woff" />
+    <Content Include="Content\vendors\mdi\fonts\materialdesignicons-webfont.woff2" />
+    <None Include="Scripts\jquery-3.6.3.intellisense.js" />
+    <Content Include="Scripts\jquery-3.6.3.js" />
+    <Content Include="Scripts\jquery-3.6.3.min.js" />
+    <Content Include="Scripts\jquery-3.6.3.slim.js" />
+    <Content Include="Scripts\jquery-3.6.3.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -162,23 +301,40 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_Navigation.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Shared\_Sidebar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
     <None Include="packages.config" />
-    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\jquery-3.6.3.slim.min.map" />
+    <Content Include="Scripts\jquery-3.6.3.min.map" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -208,11 +364,12 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
