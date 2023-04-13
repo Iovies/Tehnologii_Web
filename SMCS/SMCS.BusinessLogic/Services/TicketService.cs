@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace SMCS.BusinessLogic.Services
 {
-    public class TicketService : ITicketService
+    internal class TicketService : ITicketService
     {
-       
     }
 }

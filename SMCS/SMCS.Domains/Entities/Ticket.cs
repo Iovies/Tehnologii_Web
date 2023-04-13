@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SMCS.Domains.Entities
 {
-    public class Ticket
+    public  class Ticket
     {
         public string TicketNumber { get; set; }
         public string TicketTitle { get; set; }
