@@ -1,0 +1,15 @@
+﻿@*@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+*@
+@{
+    var controller = this.ViewContext.RouteData.Values["controller"];
+    if (controller.ToString() != "auth")
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Auth/_Layout.cshtml";
+    }
+}

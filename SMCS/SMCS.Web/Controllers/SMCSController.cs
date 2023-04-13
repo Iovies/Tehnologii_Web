@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace SMCS.Web.Controllers
 {
     public class SMCSController : Controller
     {
-        // GET: SMCS
-        public ActionResult Index()
+        private readonly ISession _session;
+
+        public IActionResult Index()
         {
             return View();
         }

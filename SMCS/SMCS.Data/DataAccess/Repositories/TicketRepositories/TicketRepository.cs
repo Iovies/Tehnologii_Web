@@ -1,9 +1,9 @@
-﻿using SMCS.Data.DataAcces.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using SMCS.Data.DataAcces.Interfaces;
 using SMCS.Data.DataBaseContext;
 using SMCS.Models.DTOs;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
