@@ -1,48 +1,44 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-
-    @Styles.Render("~/Content/style")
-    @Styles.Render("~/Content/materialDesignIcons")
-    @Styles.Render("~/Content/base")
-
-    @Scripts.Render("~/bundles/modernizr")
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SMCS.Web</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" /><!--Custom css-->
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" /><!--Template css-->
+    <link rel="stylesheet" href="~/css/vendor.css" asp-append-version="true" /><!--Vendor css tot din template-->
+    <link rel="stylesheet" href="~/lib/mdi/font/css/materialdesignicons.css" asp-append-version="true" /><!--Material Design Icons css-->
+    <link rel="stylesheet" href="~/lib/font-awesome/css/fontawesome.css" asp-append-version="true" /><!--Font awesome css-->
+    <link rel="stylesheet" href="~/lib/bootstrap-datepicker/css/bootstrap-datepicker.css" asp-append-version="true" /><!--Bootstrap-datepicker css-->
 </head>
 <body>
     <div class="container-scroller">
-        <!-- Navigation -->
-        <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-            @Html.Partial("_Navigation")
-        </nav>
+            <!-- Navigation -->
+            <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+                @Html.Partial("_NavBarPartial")
+            </nav>
 
-        <!-- Page Body -->
-        <div class="container-fluid page-body-wrapper">
-            <!-- Sidebar -->
-            <aside class="sidebar sidebar-offcanvas" id="sidebar">
-                @Html.Partial("_Sidebar")
-            </aside>
+            <!-- Page Body -->
+            <div class="container-fluid page-body-wrapper">
+                <!-- Sidebar -->
+                <aside class="sidebar sidebar-offcanvas" id="sidebar">
+                    @Html.Partial("_SideBarPartial")
+                </aside>
 
-            <!-- Main view -->
-            <section class="main-panel">
-                @RenderBody()
-                <!-- Footer -->
-                @Html.Partial("_Footer")
-            </section>
+                <!-- Main view -->
+                <section class="main-panel">
+                    @RenderBody()
+                    <!-- Footer -->
+                @Html.Partial("_FooterPartial")
+                </section>
+            </div>
         </div>
-    </div>
 
-    <!-- Section for main scripts render -->
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-
-    <!-- Template JS-->
-    @Scripts.Render("~/Content/js/base")
-    @Scripts.Render("~/Content/js/misc")
-
-    <!-- Handler for local scripts -->
-    @RenderSection("scripts", required: false)
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/misc.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
