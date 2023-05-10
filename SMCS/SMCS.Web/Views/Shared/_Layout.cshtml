@@ -36,9 +36,22 @@
         </div>
 
     <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/select2/js/select2.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/misc.js" asp-append-version="true"></script>
+    <script>
+        (function ($) {
+            'use strict';
+
+            if ($(".js-example-basic-single").length) {
+                $(".js-example-basic-single").select2();
+            }
+            if ($(".js-example-basic-multiple").length) {
+                $(".js-example-basic-multiple").select2();
+            }
+        })(jQuery);
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
