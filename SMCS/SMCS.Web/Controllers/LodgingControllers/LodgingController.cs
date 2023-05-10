@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SMCS.Domains.Entities;
 using SMCS.Web.Models.Lodging;
 
 namespace SMCS.Web.Controllers.LodgingControllers
@@ -29,14 +30,25 @@ namespace SMCS.Web.Controllers.LodgingControllers
         [Route("lodging/requests")] // Only admin
         public IActionResult ViewRequests()
         {
-            return View();
+            var model = new RequestModel();
+            model.requestModels = new List<LodgingRequestModel>()
+            {
+                new LodgingRequestModel() { ID = "1234", Name="Alex", Description = "Salut"},
+                new LodgingRequestModel() { ID = "231", Name="Alex Pro", Description = "Buna"},
+                new LodgingRequestModel() { ID = "6543", Name="Alex Pro Max", Description = "Buna ziua"},
+                new LodgingRequestModel() { ID = "1096", Name="Alex Pro Max S", Description = "Buna Dimineata"},
+                new LodgingRequestModel() { ID = "32435", Name="Alex Pro Max XS", Description = "Buna ZIUA?"},
+                new LodgingRequestModel() { ID = "111", Name="Alex Pro Max XXL", Description = "DA?!"}
+            };
+           
+            return View(model);
         }
 
         [HttpGet]
-        [Route("ticket/requests/{id}")] // Only admin
-        public IActionResult ViewRequest(int id)
+        [Route("lodging/requests/{id}")] // Only admin
+        public IActionResult ViewRequest(LodgingRequestModel model)
         {
-            return View(id);
+            return View(model);
         }
     }
 }

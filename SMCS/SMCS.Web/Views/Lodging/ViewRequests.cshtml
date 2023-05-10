@@ -3,6 +3,7 @@
 *@
 @{
 }
+@model SMCS.Web.Models.Lodging.RequestModel
 
 <link href="~/lib/datatables/css/datatables.bootstrap4.css" rel="stylesheet" />
 
@@ -28,6 +29,30 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @{ // Template Start
+                                        foreach (var item in Model.requestModels)
+                                        {
+                                            <tr>
+                                                <td>@item.ID</td>
+                                                <td>@item.Name</td>
+                                                <td>@item.Description</td>
+                                                <td>$1500</td>
+                                                <td>$3200</td>
+                                                <td>
+                                                    <label class="badge badge-info">On hold</label>
+                                                </td>
+                                                <td class="text-right">
+                                                    <button class="btn btn-light" onclick="location.href='@Url.Action("requests","lodging",  item)'">
+                                                        <i class="mdi mdi-eye text-primary"></i>View
+                                                    </button>
+                                                    <button class="btn btn-light">
+                                                        <i class="mdi mdi-close text-danger"></i>Remove
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        } // Template Final
+                                    }
+
                                     <tr>
                                         <td>WD-61</td>
                                         <td>Edinburgh</td>
