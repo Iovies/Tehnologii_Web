@@ -12,7 +12,7 @@
     <h4 class="card-title">Cazare</h4>
     <p class="card-description">Cazeaza-te singur, la noi e autoservire</p>
     <form class="forms-sample">
-        @*@if (isAdministrator)
+        @*@if (isAdmin)
         {
             <div class="form-group">
                 <label for="UsersSelect">Single select box using select 2</label>
@@ -57,7 +57,7 @@
         </div>
         <div class="form-check form-check-flat form-check-primary">
             <label class="form-check-label">
-            <input type="checkbox" class="form-check-input">Mă oblig să achit taxa de cazare pentru locul liber și să predau camera în termenul stabilit.<i class="input-helper"></i></label>
+            <input type="checkbox" class="form-check-input" required>Mă oblig să achit taxa de cazare pentru locul liber și să predau camera în termenul stabilit.<i class="input-helper"></i></label>
         </div>
         <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
         <button class="btn btn-light">Cancel</button>

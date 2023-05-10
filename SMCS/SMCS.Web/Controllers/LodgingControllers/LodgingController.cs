@@ -5,6 +5,8 @@ namespace SMCS.Web.Controllers.LodgingControllers
 {
     public class LodgingController : Controller
     {
+        [HttpGet]
+        [Route("lodging/index")]
         public IActionResult Index()
         {
             var model = new LodgingInfoModel();
@@ -21,6 +23,20 @@ namespace SMCS.Web.Controllers.LodgingControllers
             };
             model.CellmatesCount = 4;
             return View(model);
+        }
+
+        [HttpGet]
+        [Route("lodging/requests")] // Only admin
+        public IActionResult ViewRequests()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        [Route("ticket/requests/{id}")] // Only admin
+        public IActionResult ViewRequest(int id)
+        {
+            return View(id);
         }
     }
 }
