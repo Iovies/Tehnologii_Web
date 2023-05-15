@@ -5,22 +5,25 @@
     Example: To mark a message as sent by the user then use outgoing-chat
 *@
 
-<div class="chat-bubble incoming-chat"> @*Message Template (look on incoming-chat)*@
-    <div class="chat-message">
-        <p class="font-weight-bold">Frank Carter</p>
-        <p>Leo duis ut diam quam nulla porttitor massa id neque. Sed enim ut sem viverra aliquet eget sit. Aenean et tortor at risus viverra.</p>
-        <p>Mi in nulla posuere sollicitudin aliquam ultrices. Mauris a diam maecenas sed enim. Facilisi nullam vehicula ipsum a arcu cursus vitae congue mauris. In cursus turpis massa tincidunt dui. Mattis vulputate enim nulla aliquet porttitor lacus.</p>
-    </div>
-    <div class="sender-details">
-        <img class="sender-avatar img-xs rounded-circle" src="/imgs/faces/face2.jpg" alt="profile image">
-        <p class="seen-text">Message seen : 20 min ago</p>
-    </div>
-</div>
+@{
+    foreach (var item in Model.chats[0].messages)
+    {
+        <div class="chat-bubble @item.MessageClass">
+            @*Message Template (look on incoming-chat)*@
+            <div class="chat-message">
+                <p class="font-weight-bold">@item.Username</p>
+                <p>@item.Body</p>
+            </div>
+            <div class="sender-details">
+                <img class="sender-avatar img-xs rounded-circle" src="/imgs/faces/face2.jpg" alt="profile image">
+                <p class="seen-text">Message seen : 20 min ago</p>
+            </div>
+        </div>
+    }
+}
 
-
-
-
-@*Examples Placeholder Below: (Remove all examples after implementing)*@
+<h5>___________________</h5>
+<h5>Examples Placeholder Below: (Remove all examples after implementing)</h5>
 <div class="chat-bubble incoming-chat"> @*Incoming Message Template*@
     <div class="chat-message">
         <p class="font-weight-bold">Frank Carter</p>

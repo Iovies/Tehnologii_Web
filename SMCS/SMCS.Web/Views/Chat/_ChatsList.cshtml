@@ -6,19 +6,24 @@
     types of dot-indicator: bg-success, bg-primary, bg-warning,etc or remove this div"
 *@
 
-<div class="list-item"> @*Chat List Item Template*@
-    <div class="profile-image">
-        <div class="dot-indicator sm bg-success"></div> 
-        <img class="img-sm rounded-circle" src="/imgs/faces/face1.jpg" alt="">
-    </div>
-    <p class="user-name">Peter Moore</p>
-    <p class="chat-time">30min ago</p>
-    <p class="chat-text">Hello everyone, Iam happy to share with you our new company goals..</p>
-</div>
+@{
+    foreach (var item in Model.chats)
+    {
+        <div class="list-item">
+            @*Chat List Item Template*@
+            <div class="profile-image">
+                <div class="dot-indicator sm bg-success"></div>
+                <img class="img-sm rounded-circle" src="/imgs/faces/face1.jpg" alt="">
+            </div>
+            <p class="user-name">@item.Sender</p>
+            <p class="chat-time">30min ago</p>
+            <p class="chat-text">Hello everyone, Iam happy to share with you our new company goals..</p>
+        </div>
+    }
+}
 
-
-
-@*Examples Placeholder Below: (Remove all examples after implementing)*@
+<h5>___________________</h5>
+<h5>Examples Placeholder Below: (Remove all examples after implementing)</h5>
 <div class="list-item">
     <div class="profile-image">
         <div class="dot-indicator sm bg-success"></div>
