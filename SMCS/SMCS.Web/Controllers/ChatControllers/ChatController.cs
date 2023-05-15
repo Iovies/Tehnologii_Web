@@ -6,7 +6,7 @@ namespace SMCS.Web.Controllers.ChatControllers
 {
     public class ChatController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Index() // To Do : Make the message input (the chat itself) stay as the same size, (make a scrollbar for chat, and put it in a wrapper)
         {
             /*
                 The idea is this -> we send a list of chats (List<Chat>) in view
@@ -18,11 +18,11 @@ namespace SMCS.Web.Controllers.ChatControllers
             {
                 new Chat() {
                     Receiver="Ion",
-                    Sender="NotIon",
+                    Sender="Not_Ion",
                     messages = new List<Message>()
                     { // Username = Receiver >??
                         new Message() {Username="Ion", MType=Message.MessageType.Outgoing, Body="Hello World from Ion"},
-                        new Message() {Username="NotIon", MType=Message.MessageType.Incoming, Body="Hello to you too"}
+                        new Message() {Username="Not_Ion", MType=Message.MessageType.Incoming, Body="Hello to you too"}
                     }
                 },
                 new Chat() {

@@ -1,11 +1,14 @@
 ﻿@{
 }
-
 @*
     Provide: Face image, username, chat-time, chat-text, (dot-indicator/chat-time maybe removed? if too hard to implement)
     types of dot-indicator: bg-success, bg-primary, bg-warning,etc or remove this div"
 *@
 
+@*
+    To Do: When Clicking on a chat from list -> put in a variable the index of that chat and use this index as Model.chats[index].messages
+    And It will display the chat for it
+*@
 @{
     foreach (var item in Model.chats)
     {
@@ -21,50 +24,3 @@
         </div>
     }
 }
-
-<h5>___________________</h5>
-<h5>Examples Placeholder Below: (Remove all examples after implementing)</h5>
-<div class="list-item">
-    <div class="profile-image">
-        <div class="dot-indicator sm bg-success"></div>
-        <img class="img-sm rounded-circle" src="/imgs/faces/face1.jpg" alt="">
-    </div>
-    <p class="user-name">Peter Moore</p>
-    <p class="chat-time">30min ago</p>
-    <p class="chat-text">Hello everyone, Iam happy to share with you our new company goals..</p>
-</div>
-<div class="list-item">
-    <div class="profile-image">
-        <div class="dot-indicator sm bg-primary"></div>
-        <img class="img-sm rounded-circle" src="/imgs/faces/face5.jpg" alt="">
-    </div>
-    <p class="user-name">Lillian Woods</p>
-    <p class="chat-time">1 day ago</p>
-    <p class="chat-text">Hello jessica, i will b ein london tomorrow, hope we can meer there</p>
-</div>
-<div class="list-item">
-    <div class="profile-image">
-        <div class="dot-indicator sm bg-primary"></div>
-        <img class="img-sm rounded-circle" src="/imgs/faces/face2.jpg" alt="">
-    </div>
-    <p class="user-name">Christina Love</p>
-    <p class="chat-time">2 days ago</p>
-    <p class="chat-text">Can you prep the File?</p>
-</div>
-<div class="list-item">
-    <div class="profile-image">
-        <div class="dot-indicator sm bg-warning"></div>
-        <img class="img-sm rounded-circle" src="/imgs/faces/face10.jpg" alt="">
-    </div>
-    <p class="user-name">Mabelle King</p>
-    <p class="chat-time">3 days ago</p>
-    <p class="chat-text">A new feature has been updated your account.Check it out…</p>
-</div>
-<div class="list-item">
-        <div class="profile-image">
-            <img class="img-sm rounded-circle" src="/imgs/faces/face7.jpg" alt="">
-        </div>
-        <p class="user-name">Brandon Norton</p>
-        <p class="chat-time">4 days ago</p>
-        <p class="chat-text">Hello, this is an invitation from one of the most interesting teams... </p>
-    </div>
