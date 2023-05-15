@@ -1,0 +1,67 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model SMCS.Web.Models.Lodging.LodgingInfoModel
+<link rel="stylesheet" href="~/lib/select2/css/select2.css">
+
+<div class="col-md-6 grid-margin stretch-card">
+<div class="card">
+    <div class="card-body">
+    <h4 class="card-title">Cazare</h4>
+    <p class="card-description">Cazeaza-te singur, la noi e autoservire</p>
+    <form class="forms-sample">
+        @*@if (isAdmin)
+        {
+            <div class="form-group">
+                <label for="UsersSelect">Single select box using select 2</label>
+                <select class="js-example-basic-single" id="UsersSelect" style="width:100%;">
+                <option value="AL">User 1</option>
+                <option value="WY">User 1</option>
+                <option value="AM">User 1</option>
+                <option value="CA">User 1</option>
+                <option value="RU">User 1</option>
+                </select>
+            </div>
+        }*@
+        <div class="form-group">
+            <label for="WantedDorm">Căminul în care doresc să locuiesc 2023-2024</label>
+            <select class="form-control" id="WantedDorm">
+                @foreach (var item in Model.Dorms)
+                {
+                    <option>@item</option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="WantedRoom">Camera în care doresc locuiesc 2023-2024</label>
+            <input type="text" class="form-control" id="WantedRoom" placeholder="Introdu Camera">
+        </div>
+        <div class="form-group">
+            <label for="CellmatesCount">Numarul de persoane cu care doresc sa locuiesc</label>
+            <select class="form-control" id="CellmatesCount">
+            @for (int i = 0; i < Model.CellmatesCount + 1; i++)
+            {
+                <option>@i</option>
+            }
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="Grade">Nota medie la ultima sesiune</label>
+            <input type="number" step="any" id="Grade" name="Grade" min="0" max="10">
+        </div>
+        <div class="form-group">
+            <label for="Description">Informatii Suplimentare</label>
+            <textarea class="form-control" id="Description" rows="4" placeholder="Activități extra-curriculare, Motivul, etc."></textarea>
+        </div>
+        <div class="form-check form-check-flat form-check-primary">
+            <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" required>Mă oblig să achit taxa de cazare pentru locul liber și să predau camera în termenul stabilit.<i class="input-helper"></i></label>
+        </div>
+        <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
+        <button class="btn btn-light">Cancel</button>
+    </form>
+    </div>
+</div>
+</div>
