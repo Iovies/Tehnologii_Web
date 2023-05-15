@@ -1,0 +1,23 @@
+﻿@{
+}
+@*
+    Difference between what the received and transmitted messages look like is in the two classes - > incoming-chat and outgoing-chat
+    Example: To mark a message as sent by the user then use outgoing-chat
+*@
+
+@{
+    foreach (var item in Model.chats[0].messages)
+    {
+        <div class="chat-bubble @item.MessageClass">
+            @*Message Template (look on incoming-chat)*@
+            <div class="chat-message">
+                <p class="font-weight-bold">@item.Username</p>
+                <p>@item.Body</p>
+            </div>
+            <div class="sender-details">
+                <img class="sender-avatar img-xs rounded-circle" src="/imgs/faces/face2.jpg" alt="profile image">
+                <p class="seen-text">Message seen : 20 min ago</p>
+            </div>
+        </div>
+    }
+}
