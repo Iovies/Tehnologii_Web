@@ -61,7 +61,7 @@ namespace SMCS.Models.Models
         [Required(AllowEmptyStrings = false)]
         [DataType(DataType.Date)]
         [DisplayName("Birth Date")]
-        public DateOnly BirthDate { get; set; }
+        public DateTime BirthDate { get; set; }
 
         [Required(AllowEmptyStrings = false,ErrorMessage = "Please enter the password!")]
         [DataType(DataType.Password)]

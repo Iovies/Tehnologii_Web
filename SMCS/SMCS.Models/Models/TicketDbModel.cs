@@ -1,12 +1,7 @@
 ﻿using SMCS.Models.Enums;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SMCS.Models.Models
 {
@@ -39,10 +34,10 @@ namespace SMCS.Models.Models
         [DefaultValue(null)]
         public DateTime Closed { get; set; }
 
-        [ForeignKey("ID")]
+        [ForeignKey("OpenById")]
         public UserDbModel OpenBy { get; set; }
 
-        [ForeignKey("ID")]
+        [ForeignKey("AlocatedToId")]
         public virtual ICollection<UserDbModel> AlocatedTo { get; set; }
     }
 }
