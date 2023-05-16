@@ -14,7 +14,7 @@
 <div class="card chat-app-wrapper">
     <div class="row mx-0">
         @*List Of Chats Start*@
-        <div class="col-lg-3 col-md-4 chat-list-wrapper px-0">
+            <div class="col-lg-3 col-md-4 chat-list-wrapper px-0 overflow-auto" style="min-height:65vh; max-height:65vh;">
             <div class="sidebar-spacer"> 
                 <div class="input-group chat-search-input"> @*Chats Search*@
                         <input type="text" class="form-control" placeholder="Search Inbox" aria-label="Username" id="searchInput">
@@ -40,7 +40,7 @@
         @*List Of Chats End*@
         @*Chat Space Start*@
         <div class="col px-0 d-flex flex-column">
-            <div class="chat-container-wrapper">
+            <div class="chat-container-wrapper overflow-auto" style="min-height:65vh; max-height:65vh;">
                 <!-- Chat Body -->
                 @Html.Partial("_Chat") @*<-- Chat Messages is there*@
             </div>

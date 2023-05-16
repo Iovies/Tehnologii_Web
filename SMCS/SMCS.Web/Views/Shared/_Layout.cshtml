@@ -23,9 +23,9 @@
             <!-- Page Body -->
             <div class="container-fluid page-body-wrapper">
                 <!-- Sidebar -->
-                <aside class="sidebar sidebar-offcanvas" id="sidebar">
+                @*<aside class="sidebar sidebar-offcanvas" id="sidebar">*@
                     @Html.Partial("_SideBarPartial")
-                </aside>
+                @*</aside>*@
 
                 <!-- Main view -->
                 <section class="main-panel">
@@ -52,6 +52,12 @@
     <script src="~/js/data-table.js"></script>
 
     <script src="~/js/select2.js"></script> @*For select2 features*@
+
+    @*For different collapse features*@
+    <script src="~/js/off-canvas.js"></script>
+    <script src="~/js/hoverable-collapse.js"></script> 
+
+
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
