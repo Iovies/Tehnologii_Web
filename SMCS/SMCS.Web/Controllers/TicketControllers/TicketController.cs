@@ -7,7 +7,7 @@ namespace SMCS.Web.Controllers.TicketControllers
     public class TicketController : SMCSController
     {
         [HttpGet]
-        [Route("ticket/index")]
+        [Route("ticket")]
         public IActionResult Index()
         {
             var model = new ViewTicketsViewModel();

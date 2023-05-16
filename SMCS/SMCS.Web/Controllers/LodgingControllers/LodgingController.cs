@@ -7,7 +7,7 @@ namespace SMCS.Web.Controllers.LodgingControllers
     public class LodgingController : Controller
     {
         [HttpGet]
-        [Route("lodging/index")]
+        [Route("lodging")]
         public IActionResult Index()
         {
             var model = new LodgingInfoModel();
