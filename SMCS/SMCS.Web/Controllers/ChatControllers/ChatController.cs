@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SMCS.Web.Models.Chat;
-using SMCS.Web.Models.Lodging;
 
 namespace SMCS.Web.Controllers.ChatControllers
 {
@@ -17,30 +16,33 @@ namespace SMCS.Web.Controllers.ChatControllers
             model.chats = new List<Chat>()
             {
                 new Chat() {
+                    ChatID="12i13w", // required
                     Receiver="Ion",
                     Sender="Not_Ion",
                     messages = new List<Message>()
                     { // Username = Receiver >??
-                        new Message() {Username="Ion", MType=Message.MessageType.Outgoing, Body="Hello World from Ion"},
-                        new Message() {Username="Not_Ion", MType=Message.MessageType.Incoming, Body="Hello to you too"}
+                        new Message() {Username="Ion", MType=Message.MessageType.Outgoing, Content="Hello World from Ion", Timestamp=new DateTime(2022, 12, 22, 22, 22, 1)},
+                        new Message() {Username="Not_Ion", MType=Message.MessageType.Incoming, Content="Hello to you too", Timestamp=new DateTime(2022, 12, 22, 22, 22, 1)}
                     }
                 },
                 new Chat() {
+                    ChatID="65546ww",
                     Receiver="Sanea",
                     Sender="Gheorhe",
                     messages = new List<Message>()
                     {
-                        new Message() {Username="Sanea", MType=Message.MessageType.Incoming, Body="Hello World from Sanea"},
-                        new Message() {Username="Gheorhe", MType=Message.MessageType.Outgoing, Body="Hello To you Gheorhe"}
+                        new Message() {Username="Sanea", MType=Message.MessageType.Incoming, Content="Hello World from Sanea", Timestamp = new DateTime(2022, 12, 22, 22, 22, 1)},
+                        new Message() {Username="Gheorhe", MType=Message.MessageType.Outgoing, Content="Hello To you Gheorhe", Timestamp = new DateTime(2022, 12, 22, 22, 22, 1)}
                     }
                 },
                 new Chat() {
+                    ChatID="i9899",
                     Receiver="Ion",
                     Sender="Feghea",
                     messages = new List<Message>()
                     {
-                        new Message() {Username="Ion", MType=Message.MessageType.Outgoing, Body="Maine Ore nu avem"},
-                        new Message() {Username="Feghea", MType=Message.MessageType.Incoming, Body="De ce?"}
+                        new Message() {Username="Ion", MType=Message.MessageType.Outgoing, Content="Maine Ore nu avem", Timestamp = new DateTime(2022, 12, 22, 22, 22, 1)},
+                        new Message() {Username="Feghea", MType=Message.MessageType.Incoming, Content="De ce?", Timestamp = new DateTime(2022, 12, 22, 22, 22, 1)}
                     }
                 }
             };

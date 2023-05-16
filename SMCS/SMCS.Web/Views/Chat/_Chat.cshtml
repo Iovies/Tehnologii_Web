@@ -1,5 +1,5 @@
 ﻿@{
-    int index = -1; // change to something (0-2)
+    int index = 2; // change to something (0-2) // ulterior change to chatID
 }
 @*
     Difference between what the received and transmitted messages look like is in the two classes - > incoming-chat and outgoing-chat
@@ -7,7 +7,7 @@
 *@
 
 @{
-    if (index != -1) // if (chatExists) or if (chatSelected) else display -> Select/Create a chat to display
+    if (index != -1) // if (chatExists) or if (chatSelected) or if (chatID incorect) else display -> Select/Create a chat to display
     {
         foreach (var item in Model.chats[index].messages)
         {
@@ -15,11 +15,11 @@
                 @*incoming-chat / outgoing-chat*@
                 <div class="chat-message">
                     <p class="font-weight-bold">@item.Username</p>
-                    <p>@item.Body</p>
+                    <p>@item.Content</p>
                 </div>
                 <div class="sender-details">
                     <img class="sender-avatar img-xs rounded-circle" src="/imgs/faces/face2.jpg" alt="profile image">
-                    <p class="seen-text">Message seen : 20 min ago</p>
+                    <p class="seen-text">Message Sended : @item.Timestamp</p>
                 </div>
             </div>
         }
