@@ -1,10 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Filters;
 using SMCS.Web.Models.Chat;
 
 namespace SMCS.Web.Controllers.ChatControllers
 {
-    public class ChatController : Controller
+    public class ChatController : SMCSController
     {
         public IActionResult Index() // To Do : Make the message input (the chat itself) stay as the same size, (make a scrollbar for chat, and put it in a wrapper)
         {
@@ -49,24 +48,6 @@ namespace SMCS.Web.Controllers.ChatControllers
             };
 
             return View(model);
-        }
-
-        public override void OnActionExecuting(ActionExecutingContext filterContext) // Method 1 add OnActionExecuting in each controller...
-        {
-            string selectedStyle;
-
-            if (Request.Cookies["SelectedStyle"] != null)
-            {
-                selectedStyle = Request.Cookies["SelectedStyle"];
-            }
-            else
-            {
-                selectedStyle = "default";
-            }
-
-            ViewBag.SelectedStyle = selectedStyle;
-
-            base.OnActionExecuting(filterContext);
         }
     }
 }
