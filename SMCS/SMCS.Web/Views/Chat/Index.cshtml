@@ -8,7 +8,6 @@
     To Do: 
         1.Make the New Chat Button functional
         2.Make the Input of the message functional
-        3.Make the Search functional
 *@
 <div class="col-md-12">
 @*Chat*@
@@ -19,8 +18,8 @@
         <div class="col-lg-3 col-md-4 chat-list-wrapper px-0">
             <div class="sidebar-spacer"> 
                 <div class="input-group chat-search-input"> @*Chats Search*@
-                    <input type="text" class="form-control" placeholder="Search Inbox" aria-label="Username">
-                    <div class="input-group-append">
+                        <input type="text" class="form-control" placeholder="Search Inbox" aria-label="Username" id="searchInput">
+                        <div class="input-group-append">
                     <span class="input-group-text">
                         <i class="mdi mdi-magnify"></i>
                     </span>
@@ -65,3 +64,22 @@
 </div>
 @*Chat*@
 </div>
+
+<!--Search Input Code-->
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#searchInput').on('keyup', function () {
+            var searchText = $(this).val().toLowerCase();
+            $('.user-name').each(function () {
+                var userName = $(this).text().toLowerCase();
+                var listItem = $(this).closest('.list-item');
+                if (userName.includes(searchText)) {
+                    listItem.show();
+                } else {
+                    listItem.hide();
+                }
+            });
+        });
+    });
+</script>
