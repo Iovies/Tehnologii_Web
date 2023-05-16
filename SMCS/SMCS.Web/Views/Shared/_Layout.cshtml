@@ -6,8 +6,14 @@
     <title>@ViewData["Title"] - SMCS.Web</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" /><!--Custom css-->
-    <link id="darkStyle" rel="stylesheet" href="~/css/styleDark.css" asp-append-version="true" /> <!--Template css for Dark Theme-->
-    <link id="defaultStyle" rel="stylesheet" href="~/css/style.css" asp-append-version="true" /> <!--Template css for Light Theme-->
+    @if (ViewBag.SelectedStyle == "dark")
+    {
+        <link rel="stylesheet" href="~/css/styleDark.css" asp-append-version="true" />
+    }
+    else
+    {
+        <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+    }
     <link rel="stylesheet" href="~/css/vendor.css" asp-append-version="true" /><!--Vendor css tot din template-->
     <link rel="stylesheet" href="~/lib/mdi/font/css/materialdesignicons.css" asp-append-version="true" /><!--Material Design Icons css-->
     <link rel="stylesheet" href="~/lib/font-awesome/css/fontawesome.css" asp-append-version="true" /><!--Font awesome css-->
@@ -63,7 +69,6 @@
 
     <!--Style Toggle Scripts-->
     <script src="~/js/style-toggle.js"></script>
-    <script src="~/js/style-toggle-dom.js"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

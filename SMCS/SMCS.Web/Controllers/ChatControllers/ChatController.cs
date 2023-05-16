@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using SMCS.Web.Models.Chat;
 
 namespace SMCS.Web.Controllers.ChatControllers
@@ -48,6 +49,24 @@ namespace SMCS.Web.Controllers.ChatControllers
             };
 
             return View(model);
+        }
+
+        public override void OnActionExecuting(ActionExecutingContext filterContext) // Method 1 add OnActionExecuting in each controller...
+        {
+            string selectedStyle;
+
+            if (Request.Cookies["SelectedStyle"] != null)
+            {
+                selectedStyle = Request.Cookies["SelectedStyle"];
+            }
+            else
+            {
+                selectedStyle = "default";
+            }
+
+            ViewBag.SelectedStyle = selectedStyle;
+
+            base.OnActionExecuting(filterContext);
         }
     }
 }

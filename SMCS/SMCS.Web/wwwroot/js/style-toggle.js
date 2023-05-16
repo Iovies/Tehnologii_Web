@@ -1,14 +1,12 @@
 ﻿function toggleStyle() {
-    var darkStyle = document.getElementById('darkStyle');
-    var defaultStyle = document.getElementById('defaultStyle');
-
-    if (darkStyle.disabled) {
-        darkStyle.disabled = false;
-        defaultStyle.disabled = true;
-        localStorage.setItem('selectedStyle', 'dark');
-    } else {
-        darkStyle.disabled = true;
-        defaultStyle.disabled = false;
-        localStorage.setItem('selectedStyle', 'default');
-    }
+    // Make an AJAX call to the server to toggle the style in the cookie
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "/Home/ToggleStyle", true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            location.reload();
+        }
+    };
+    xhr.send();
 }
