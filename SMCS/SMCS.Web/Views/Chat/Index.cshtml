@@ -1,4 +1,5 @@
 ﻿@{
+    int index = 0; // index of the selected chat
 }
 
 @model SMCS.Web.Models.Chat.Chats
@@ -8,6 +9,7 @@
     To Do: 
         1.Make the New Chat Button functional
         2.Make the Input of the message functional
+        3.Make the Search functional
 *@
 
 <div class="content-wrapper">
@@ -69,3 +71,21 @@
 </div>
 </div>
 </div>
+
+<script>
+    // Chat list item click event
+    document.querySelectorAll(".list-item").forEach(function (item) {
+        item.addEventListener("click", function () {
+            // Get the chat index from the data attribute
+            var chatIndex = item.dataset.chatIndex;
+
+            // Post chatIndex with ajax where: find chat ID associated with this chatIndex and display it in _Chat partial
+
+            // Add your code to handle the chat selection and update the chat view
+            // For example, you can make an AJAX request to fetch the selected chat data and update the chat view
+            // or update the chat view directly using JavaScript with the data available on the page
+
+            console.log("Selected chat index:", chatIndex);
+        });
+    });
+</script>

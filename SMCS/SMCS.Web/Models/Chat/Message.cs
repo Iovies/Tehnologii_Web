@@ -10,7 +10,7 @@ namespace SMCS.Web.Models.Chat
 
         /*
             It can be done differently :
-            If we are doing not group chat then simple check if the message username is the same as chat Username of the person -> then it's incoming message ?
+            check if the message username is the same as chat Username of the person -> then it's incoming message ?
         */
         
         // test implementation
