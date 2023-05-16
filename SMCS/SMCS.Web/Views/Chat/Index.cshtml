@@ -6,7 +6,6 @@
 
 @*
     To Do: 
-        1.Make the New Chat Button functional
         2.Make the Input of the message functional
 *@
 <div class="col-md-12">
@@ -91,17 +90,16 @@
 <script>
     document.getElementById('newChatButton').addEventListener('click', function () {
         // Generate the form HTML dynamically
+        // Modify this form if nedeed to add more searches, buttons etc
         var formHtml = `
             <div class="card bg-gradient-primary">
                 <div class="card-body">
                     <h5 class="h-100 d-flex justify-content-center align-items-center">Create Chat</h5>
                     <div class="input-group chat-search-input">
                         <input type="text" class="form-control" placeholder="Search User to add" aria-label="Username" id="userAddInput">
-                        <div class="input-group-append">
-                            <span class="input-group-text">
-                                <i class="mdi mdi-plus"></i>
-                            </span>
-                        </div>
+                            <div class="input-group-append">
+                                <button id="addChat" class="btn btn-danger mdi mdi-plus" type="button"></button>
+                            </div>
                     </div>
                     <div class="h-100 d-flex justify-content-center align-items-center">
                         <button id="deleteFormButton" class="btn btn-danger">Close Form</button>
@@ -114,14 +112,13 @@
         document.getElementById('formContainer').innerHTML = formHtml;
         
         // Handle form submission
-        document.getElementById('submitButton').addEventListener('click', function () {
-            var username = document.getElementById('usernameInput').value;
+        document.getElementById('addChat').addEventListener('click', function () {
+            var username = document.getElementById('userAddInput').value;
+            console.log(username);
             // Perform further processing or make a request to the server with the username data
             // For example, you can use AJAX to send the data to a server-side endpoint
             // using fetch or other libraries like Axios
         });
-
-
     });
 
     // Add event listener to delete the form
