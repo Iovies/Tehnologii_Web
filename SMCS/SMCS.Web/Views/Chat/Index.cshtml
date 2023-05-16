@@ -32,7 +32,10 @@
                 @*Doesn't know how it will work with search so if something needed put /Chat Search/ div in partial too*@
             </div>
             <div class="sidebar-spacer"> @*New Chat Button*@
-                <button class="btn btn-block btn-gradient-success py-3" type="button">+ New Chat</button>
+                <div class="h-100 d-flex justify-content-center align-items-center">
+                    <button id="newChatButton" class="btn btn-block btn-gradient-success py-3" type="button">+ New Chat</button>
+                </div>
+                <div id="formContainer" class="mt-1"></div>
             </div>
         </div>
         @*List Of Chats End*@
@@ -81,5 +84,55 @@
                 }
             });
         });
+    });
+</script>
+
+<!--New Chat Button Code-->
+<script>
+    document.getElementById('newChatButton').addEventListener('click', function () {
+        // Generate the form HTML dynamically
+        var formHtml = `
+            <div class="card bg-gradient-primary">
+                <div class="card-body">
+                    <h5 class="h-100 d-flex justify-content-center align-items-center">Create Chat</h5>
+                    <div class="input-group chat-search-input">
+                        <input type="text" class="form-control" placeholder="Search User to add" aria-label="Username" id="userAddInput">
+                        <div class="input-group-append">
+                            <span class="input-group-text">
+                                <i class="mdi mdi-plus"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="h-100 d-flex justify-content-center align-items-center">
+                        <button id="deleteFormButton" class="btn btn-danger">Close Form</button>
+                    </div>
+                </div>
+            </div>
+            `;
+            
+        // Render the form inside the container
+        document.getElementById('formContainer').innerHTML = formHtml;
+        
+        // Handle form submission
+        document.getElementById('submitButton').addEventListener('click', function () {
+            var username = document.getElementById('usernameInput').value;
+            // Perform further processing or make a request to the server with the username data
+            // For example, you can use AJAX to send the data to a server-side endpoint
+            // using fetch or other libraries like Axios
+        });
+
+
+    });
+
+    // Add event listener to delete the form
+    document.addEventListener('click', function (event) {
+        var formContainer = document.getElementById('formContainer');
+        var target = event.target;
+
+        // Check if the click target is the delete button
+        if (target.id === 'deleteFormButton') {
+            // Clear the formContainer
+            formContainer.innerHTML = '';
+        }
     });
 </script>
