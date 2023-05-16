@@ -9,9 +9,6 @@
         1.Make the New Chat Button functional
         2.Make the Input of the message functional
 *@
-
-<div class="content-wrapper">
-<div class="row">
 <div class="col-md-12">
 @*Chat*@
 <button type="button" class="btn btn-secondary py-3 mb-4 text-center d-md-none aside-toggler"><i class="mdi mdi-menu mr-0 icon-md"></i></button>
@@ -21,8 +18,8 @@
         <div class="col-lg-3 col-md-4 chat-list-wrapper px-0">
             <div class="sidebar-spacer"> 
                 <div class="input-group chat-search-input"> @*Chats Search*@
-                    <input type="text" class="form-control" placeholder="Search Inbox" aria-label="Username">
-                    <div class="input-group-append">
+                        <input type="text" class="form-control" placeholder="Search Inbox" aria-label="Username" id="searchInput">
+                        <div class="input-group-append">
                     <span class="input-group-text">
                         <i class="mdi mdi-magnify"></i>
                     </span>
@@ -35,7 +32,10 @@
                 @*Doesn't know how it will work with search so if something needed put /Chat Search/ div in partial too*@
             </div>
             <div class="sidebar-spacer"> @*New Chat Button*@
-                <button class="btn btn-block btn-gradient-success py-3" type="button">+ New Chat</button>
+                <div class="h-100 d-flex justify-content-center align-items-center">
+                    <button id="newChatButton" class="btn btn-block btn-gradient-success py-3" type="button">+ New Chat</button>
+                </div>
+                <div id="formContainer" class="mt-1"></div>
             </div>
         </div>
         @*List Of Chats End*@
@@ -67,5 +67,72 @@
 </div>
 @*Chat*@
 </div>
-</div>
-</div>
+
+<!--Search Input Code-->
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#searchInput').on('keyup', function () {
+            var searchText = $(this).val().toLowerCase();
+            $('.user-name').each(function () {
+                var userName = $(this).text().toLowerCase();
+                var listItem = $(this).closest('.list-item');
+                if (userName.includes(searchText)) {
+                    listItem.show();
+                } else {
+                    listItem.hide();
+                }
+            });
+        });
+    });
+</script>
+
+<!--New Chat Button Code-->
+<script>
+    document.getElementById('newChatButton').addEventListener('click', function () {
+        // Generate the form HTML dynamically
+        var formHtml = `
+            <div class="card bg-gradient-primary">
+                <div class="card-body">
+                    <h5 class="h-100 d-flex justify-content-center align-items-center">Create Chat</h5>
+                    <div class="input-group chat-search-input">
+                        <input type="text" class="form-control" placeholder="Search User to add" aria-label="Username" id="userAddInput">
+                        <div class="input-group-append">
+                            <span class="input-group-text">
+                                <i class="mdi mdi-plus"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="h-100 d-flex justify-content-center align-items-center">
+                        <button id="deleteFormButton" class="btn btn-danger">Close Form</button>
+                    </div>
+                </div>
+            </div>
+            `;
+            
+        // Render the form inside the container
+        document.getElementById('formContainer').innerHTML = formHtml;
+        
+        // Handle form submission
+        document.getElementById('submitButton').addEventListener('click', function () {
+            var username = document.getElementById('usernameInput').value;
+            // Perform further processing or make a request to the server with the username data
+            // For example, you can use AJAX to send the data to a server-side endpoint
+            // using fetch or other libraries like Axios
+        });
+
+
+    });
+
+    // Add event listener to delete the form
+    document.addEventListener('click', function (event) {
+        var formContainer = document.getElementById('formContainer');
+        var target = event.target;
+
+        // Check if the click target is the delete button
+        if (target.id === 'deleteFormButton') {
+            // Clear the formContainer
+            formContainer.innerHTML = '';
+        }
+    });
+</script>

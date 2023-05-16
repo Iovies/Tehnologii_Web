@@ -1,4 +1,5 @@
 ﻿@{
+    int index = 2; // change to something (0-2) // ulterior change to chatID
 }
 @*
     Difference between what the received and transmitted messages look like is in the two classes - > incoming-chat and outgoing-chat
@@ -6,18 +7,27 @@
 *@
 
 @{
-    foreach (var item in Model.chats[0].messages)
+    if (index != -1) // if (chatExists) or if (chatSelected) or if (chatID incorect) else display -> Select/Create a chat to display
     {
-        <div class="chat-bubble @item.MessageClass">
-            @*Message Template (look on incoming-chat)*@
-            <div class="chat-message">
-                <p class="font-weight-bold">@item.Username</p>
-                <p>@item.Body</p>
+        foreach (var item in Model.chats[index].messages)
+        {
+            <div class="chat-bubble @item.MessageClass">
+                @*incoming-chat / outgoing-chat*@
+                <div class="chat-message">
+                    <p class="font-weight-bold">@item.Username</p>
+                    <p>@item.Content</p>
+                </div>
+                <div class="sender-details">
+                    <img class="sender-avatar img-xs rounded-circle" src="/imgs/faces/face2.jpg" alt="profile image">
+                    <p class="seen-text">Message Sended : @item.Timestamp</p>
+                </div>
             </div>
-            <div class="sender-details">
-                <img class="sender-avatar img-xs rounded-circle" src="/imgs/faces/face2.jpg" alt="profile image">
-                <p class="seen-text">Message seen : 20 min ago</p>
-            </div>
+        }
+    }
+    else 
+    {
+        <div class="h-100 d-flex justify-content-center align-items-center">
+            <h4>Nothing to display</h4>
         </div>
     }
 }

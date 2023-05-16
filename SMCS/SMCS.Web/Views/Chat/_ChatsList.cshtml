@@ -2,25 +2,46 @@
 }
 @*
     Provide: Face image, username, chat-time, chat-text, (dot-indicator/chat-time maybe removed? if too hard to implement)
-    types of dot-indicator: bg-success, bg-primary, bg-warning,etc or remove this div"
+    Types of dot-indicator: bg-success, bg-primary, bg-warning, any otheer bg-from bootstrap, etc or don't display this div if (personSession!=Logged)
 *@
 
-@*
-    To Do: When Clicking on a chat from list -> put in a variable the index of that chat and use this index as Model.chats[index].messages
-    And It will display the chat for it
-*@
 @{
-    foreach (var item in Model.chats)
+    if (Model.chats.Count > 0) // if (chatsExists)
     {
-        <div class="list-item">
+        foreach (var item in Model.chats)
+        {
             @*Chat List Item Template*@
-            <div class="profile-image">
-                <div class="dot-indicator sm bg-success"></div>
-                <img class="img-sm rounded-circle" src="/imgs/faces/face1.jpg" alt="">
+            <div class="list-item" data-chat-id="@item.ChatID">
+                <div class="profile-image">
+                    <div class="dot-indicator sm bg-success"></div>
+                    <img class="img-sm rounded-circle" src="/imgs/faces/face1.jpg" alt="">
+                </div>
+                <p class="user-name">@item.Sender</p>
+                <p class="chat-time">30min ago</p>
+                <p class="chat-text">Hello everyone, Iam happy to share with you our new company goals..</p> @*Last message trimed*@
             </div>
-            <p class="user-name">@item.Sender</p>
-            <p class="chat-time">30min ago</p>
-            <p class="chat-text">Hello everyone, Iam happy to share with you our new company goals..</p>
+        }
+    }
+    else
+    {
+        <div class="h-100 d-flex justify-content-center align-items-center">
+            <h4>Create a new chat</h4>
         </div>
     }
 }
+
+<script>
+    // Chat list item click event
+    document.querySelectorAll(".list-item").forEach(function (item) {
+        item.addEventListener("click", function () {
+            var chatID = item.dataset.chatId; // Get the chat ID from the data attribute
+            console.log("Selected chat index:", chatID);
+            @*
+                // Post chatIndex with ajax where: find chat ID associated with this chatIndex and display it in _Chat partial
+                // Add your code to handle the chat selection and update the chat view
+                // For example, you can make an AJAX request to fetch the selected chat data and update the chat view
+                // or update the chat view directly using JavaScript with the data available on the page
+            *@
+        });
+    });
+</script>
