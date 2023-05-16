@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SMCS.Domains.Entities;
 using SMCS.Web.Models.Lodging;
 
 namespace SMCS.Web.Controllers.LodgingControllers
