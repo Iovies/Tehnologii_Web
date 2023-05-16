@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="~/lib/mdi/font/css/materialdesignicons.css" asp-append-version="true" /><!--Material Design Icons css-->
     <link rel="stylesheet" href="~/lib/font-awesome/css/fontawesome.css" asp-append-version="true" /><!--Font awesome css-->
     <link rel="stylesheet" href="~/lib/bootstrap-datepicker/css/bootstrap-datepicker.css" asp-append-version="true" /><!--Bootstrap-datepicker css-->
+    
 </head>
 <body>
     <div class="container-scroller">
@@ -22,23 +23,44 @@
             <!-- Page Body -->
             <div class="container-fluid page-body-wrapper">
                 <!-- Sidebar -->
-                <aside class="sidebar sidebar-offcanvas" id="sidebar">
+                @*<aside class="sidebar sidebar-offcanvas" id="sidebar">*@
                     @Html.Partial("_SideBarPartial")
-                </aside>
+                @*</aside>*@
 
                 <!-- Main view -->
                 <section class="main-panel">
-                    @RenderBody()
+                    <div class="content-wrapper">
+                        <div class="row">
+                            @RenderBody()
+                        </div>
+                    </div>
                     <!-- Footer -->
-                @Html.Partial("_FooterPartial")
+                    @Html.Partial("_FooterPartial")
                 </section>
             </div>
         </div>
 
     <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/select2/js/select2.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/misc.js" asp-append-version="true"></script>
+
+    @*For DataTables (For lodging requests)*@
+    <script src="~/lib/datatables/js/datatables.bootstrap4.js"></script>
+    <script src="~/lib/datatables/js/jquery.datatables.js"></script>
+    <script src="~/js/data-table.js"></script>
+
+    <script src="~/js/select2.js"></script> @*For select2 features*@
+
+    @*For different collapse features*@
+    <script src="~/js/off-canvas.js"></script>
+    <script src="~/js/hoverable-collapse.js"></script>
+
+    @*For wizard features*@
+    <script src="~/lib/jquery-steps/jquery.steps.min.js"></script>
+    <script src="~/js/wizard.js"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
