@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal;
 using Microsoft.Extensions.Options;
@@ -14,6 +15,7 @@ using System.Threading.Tasks;
 
 namespace SMCS.Data.DataBaseContext
 {
+    public class AppDataBaseContext : IdentityDbContext
     public class AppDataBaseContext : IdentityDbContext
     {
         public AppDataBaseContext(DbContextOptions<AppDataBaseContext> options)
