@@ -13,6 +13,7 @@ namespace SMCS.Data.DataAccess.Interfaces
         IDormRepository Dorms { get; }
         IFloorRepository Floors { get; }
         IRoomRepository Rooms { get;}
+        IUsersRepository Users { get; }
         int Complete();
     }
 }

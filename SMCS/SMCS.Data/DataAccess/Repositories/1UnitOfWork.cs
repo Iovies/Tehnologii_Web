@@ -20,7 +20,7 @@ namespace SMCS.Data.DataAccess.Repositories
             Dorms = new DormRepository(_context);
             Floors = new FloorRepository(_context);
             Rooms = new RoomRepository(_context);
-
+            Users = new UsersRepository(_context);
         }
 
         public IArticleRepository Articles { get; private set; }
@@ -33,7 +33,7 @@ namespace SMCS.Data.DataAccess.Repositories
 
         public IRoomRepository Rooms { get; private set; }
 
-
+        public IUsersRepository Users { get; private set; }
 
         public int Complete()
         {
