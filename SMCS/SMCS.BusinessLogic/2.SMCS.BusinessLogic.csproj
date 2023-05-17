@@ -7,7 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SMCS.Domains\3.SMCS.Domains.csproj" />
+    <ProjectReference Include="..\SMCS.Data\4.SMCS.Data.csproj" />
+    <ProjectReference Include="..\SMCS.Models\3.SMCS.Models.csproj" />
   </ItemGroup>
 
 </Project>

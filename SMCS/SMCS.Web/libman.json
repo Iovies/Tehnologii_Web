@@ -24,6 +24,11 @@
       "destination": "wwwroot/lib/bootstrap-datepicker/"
     },
     {
+      "provider": "jsdelivr",
+      "library": "jquery-easing@0.0.1",
+      "destination": "wwwroot/lib/jquery-easing/"
+    },
+    {
       "library": "select2@4.0.13",
       "destination": "wwwroot/lib/select2/"
     },

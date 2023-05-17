@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SMCS.Domains.Entities;
 using SMCS.Web.Models.Tickets;
 
 namespace SMCS.Web.Controllers.TicketControllers

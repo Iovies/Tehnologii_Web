@@ -1,4 +1,5 @@
-﻿using SMCS.Data.DataAccess.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using SMCS.Data.DataAccess.Repositories;
 using SMCS.Data.DataBaseContext;
 using SMCS.Models.Models;
 using System;
@@ -9,8 +10,8 @@ using System.Threading.Tasks;
 
 namespace SMCS.Data.DataAccess.Interfaces
 {
-    public interface ITicketRepository : IRepository<TicketDbModel>
+    public interface IFloorRepository : IRepository<FloorDbModel>
     {
-        public ILookup<DateTime, TicketDbModel> GetTicketsGroupedByDate();
+
     }
 }
