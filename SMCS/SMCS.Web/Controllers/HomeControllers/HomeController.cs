@@ -2,7 +2,7 @@
 using SMCS.Web.Models;
 using System.Diagnostics;
 
-namespace SMCS.Web.Controllers
+namespace Controllers.HomeControllers
 {
     public class HomeController : Controller
     {

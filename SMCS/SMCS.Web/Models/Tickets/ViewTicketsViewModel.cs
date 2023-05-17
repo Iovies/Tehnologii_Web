@@ -1,4 +1,3 @@
-﻿
 namespace SMCS.Web.Models.Tickets
 {
     public class ViewTicketsViewModel

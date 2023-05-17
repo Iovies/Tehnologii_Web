@@ -14,23 +14,26 @@
 </head>
 <body>
     <div class="container-scroller">
-        <div class="banner-wrapper">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        @Html.Partial("_HomeNavBarPartial")
-                    </div>
-                </div>
-                <div class="row py-sm-5 py-0">
-                    <!--Banner Partial-->
-                    @Html.Partial("_HomeBannerPartial")
-                    <!--Banner Partial-->
-                </div>
+            <!-- Navigation -->
+            <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+                @Html.Partial("_DashNavBarPartial")
+            </nav>
+
+            <!-- Page Body -->
+            <div class="container-fluid page-body-wrapper">
+                <!-- Sidebar -->
+                <aside class="sidebar sidebar-offcanvas" id="sidebar">
+                    @Html.Partial("_DashSideBarPartial")
+                </aside>
+
+                <!-- Main view -->
+                <section class="main-panel">
+                    @RenderBody()
+                    <!-- Footer -->
+                @Html.Partial("_DashFooterPartial")
+                </section>
             </div>
         </div>
-        @RenderBody()
-        @Html.Partial("_HomeFooterPartial")
-    </div>
 
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>

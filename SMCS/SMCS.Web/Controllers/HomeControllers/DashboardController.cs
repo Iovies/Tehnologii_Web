@@ -1,11 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace SMCS.Web.Controllers
+namespace Controllers.HomeControllers
 {
-    public class SMCSController : Controller
+    public class DashboardController : Controller
     {
-        private readonly ISession _session;
-
         public IActionResult Index()
         {
             return View();

@@ -2,7 +2,7 @@
 
 namespace SMCS.Web.Controllers.IdentityControllers
 {
-    public class SMCSUserController : SMCSController
+    public class SMCSUserController : Controller
     {
         public IActionResult Index()
         {

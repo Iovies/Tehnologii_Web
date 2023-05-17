@@ -11,31 +11,48 @@
     <link rel="stylesheet" href="~/lib/mdi/font/css/materialdesignicons.css" asp-append-version="true" /><!--Material Design Icons css-->
     <link rel="stylesheet" href="~/lib/font-awesome/css/fontawesome.css" asp-append-version="true" /><!--Font awesome css-->
     <link rel="stylesheet" href="~/lib/bootstrap-datepicker/css/bootstrap-datepicker.css" asp-append-version="true" /><!--Bootstrap-datepicker css-->
+    
 </head>
 <body>
     <div class="container-scroller">
-        <div class="banner-wrapper">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        @Html.Partial("_HomeNavBarPartial")
+            <!-- Navigation -->
+            <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+                @Html.Partial("_NavBarPartial")
+            </nav>
+
+            <!-- Page Body -->
+            <div class="container-fluid page-body-wrapper">
+                <!-- Sidebar -->
+                <aside class="sidebar sidebar-offcanvas" id="sidebar">
+                    @Html.Partial("_SideBarPartial")
+                </aside>
+
+                <!-- Main view -->
+                <section class="main-panel">
+                    <div class="content-wrapper">
+                        <div class="row">
+                            @RenderBody()
+                        </div>
                     </div>
-                </div>
-                <div class="row py-sm-5 py-0">
-                    <!--Banner Partial-->
-                    @Html.Partial("_HomeBannerPartial")
-                    <!--Banner Partial-->
-                </div>
+                    <!-- Footer -->
+                    @Html.Partial("_FooterPartial")
+                </section>
             </div>
         </div>
-        @RenderBody()
-        @Html.Partial("_HomeFooterPartial")
-    </div>
 
     <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/select2/js/select2.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/misc.js" asp-append-version="true"></script>
+
+    @*For DataTables (For lodging requests)*@
+    <script src="~/lib/datatables/js/datatables.bootstrap4.js"></script>
+    <script src="~/lib/datatables/js/jquery.datatables.js"></script>
+    <script src="~/js/data-table.js"></script>
+
+    <script src="~/js/select2.js"></script> @*For select2 features*@
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

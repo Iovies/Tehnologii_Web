@@ -3,7 +3,7 @@ using SMCS.Web.Models.Tickets;
 
 namespace SMCS.Web.Controllers.TicketControllers
 {
-    public class TicketController : SMCSController
+    public class TicketController : Controller
     {
         [HttpGet]
         [Route("ticket")]
