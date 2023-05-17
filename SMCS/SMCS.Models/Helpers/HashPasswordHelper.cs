@@ -18,7 +18,7 @@ namespace SMCS.Models.Helpers
         }
         public static bool VerifyPassword(string password, string hash)
         {
-            return HashPassword(password) == hash;
+            return HashPassword(password).Substring(0,30) == hash;
         }   
     }
 }
