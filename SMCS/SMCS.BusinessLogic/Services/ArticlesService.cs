@@ -8,11 +8,10 @@ using System.Threading.Tasks;
 
 namespace SMCS.BusinessLogic.Services
 {
-    public class TicketService : ITicketsService
+    public class ArticlesService : IArticlesService
     {
-        public TicketService(IUnitOfWork unitOfWork)
+        public ArticlesService(IUnitOfWork unitOfWork)
         {
-
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SMCS.BusinessLogic.Interfaces
 {
-    internal interface ITicketService
+    public interface ITicketsService
     {
     }
 }
