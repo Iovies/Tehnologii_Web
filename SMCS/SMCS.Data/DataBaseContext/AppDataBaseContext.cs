@@ -16,7 +16,6 @@ using System.Threading.Tasks;
 namespace SMCS.Data.DataBaseContext
 {
     public class AppDataBaseContext : IdentityDbContext
-    public class AppDataBaseContext : IdentityDbContext
     {
         public AppDataBaseContext(DbContextOptions<AppDataBaseContext> options)
             : base(options)

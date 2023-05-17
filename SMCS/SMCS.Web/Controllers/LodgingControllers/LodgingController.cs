@@ -3,7 +3,7 @@ using SMCS.Web.Models.Lodging;
 
 namespace SMCS.Web.Controllers.LodgingControllers
 {
-    public class LodgingController : SMCSController
+    public class LodgingController : Controller
     {
         [HttpGet]
         [Route("lodging")]

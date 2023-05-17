@@ -2,7 +2,7 @@
 
 namespace SMCS.Web.Controllers.ArticleControllers
 {
-    public class ArticleController : SMCSController
+    public class ArticleController : Controller
     {
         [HttpGet]
         [Route("Articles")]

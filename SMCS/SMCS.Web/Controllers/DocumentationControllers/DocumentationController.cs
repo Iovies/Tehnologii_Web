@@ -2,7 +2,7 @@
 
 namespace SMCS.Web.Controllers.DocumentationControllers
 {
-    public class DocumentationController : SMCSController
+    public class DocumentationController : Controller
     {
         [HttpGet]
         [Route("docs")]
