@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 namespace SMCS.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : SMCSController
     {
         private readonly ILogger<HomeController> _logger;
 
@@ -17,7 +17,7 @@ namespace SMCS.Web.Controllers
         {
             return View();
         }
-
+        
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

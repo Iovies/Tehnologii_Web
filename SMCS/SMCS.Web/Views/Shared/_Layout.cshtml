@@ -6,39 +6,45 @@
     <title>@ViewData["Title"] - SMCS.Web</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" /><!--Custom css-->
-    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" /><!--Template css-->
+    @if (ViewBag.SelectedStyle == "dark")
+    {
+        <link rel="stylesheet" href="~/css/styleDark.css" asp-append-version="true" /> <!--Template css for Dark Theme-->
+    }
+    else
+    {
+        <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" /> <!--Template css for Light Theme-->
+    }
     <link rel="stylesheet" href="~/css/vendor.css" asp-append-version="true" /><!--Vendor css tot din template-->
     <link rel="stylesheet" href="~/lib/mdi/font/css/materialdesignicons.css" asp-append-version="true" /><!--Material Design Icons css-->
     <link rel="stylesheet" href="~/lib/font-awesome/css/fontawesome.css" asp-append-version="true" /><!--Font awesome css-->
     <link rel="stylesheet" href="~/lib/bootstrap-datepicker/css/bootstrap-datepicker.css" asp-append-version="true" /><!--Bootstrap-datepicker css-->
-    
 </head>
 <body>
     <div class="container-scroller">
-            <!-- Navigation -->
-            <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-                @Html.Partial("_NavBarPartial")
-            </nav>
+        <!-- Navigation -->
+        <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+            @Html.Partial("_NavBarPartial")
+        </nav>
 
-            <!-- Page Body -->
-            <div class="container-fluid page-body-wrapper">
-                <!-- Sidebar -->
-                @*<aside class="sidebar sidebar-offcanvas" id="sidebar">*@
-                    @Html.Partial("_SideBarPartial")
-                @*</aside>*@
+        <!-- Page Body -->
+        <div class="container-fluid page-body-wrapper">
+            <!-- Sidebar -->
+            @*<aside class="sidebar sidebar-offcanvas" id="sidebar">*@
+            @Html.Partial("_SideBarPartial")
+            @*</aside>*@
 
-                <!-- Main view -->
-                <section class="main-panel">
-                    <div class="content-wrapper">
-                        <div class="row">
-                            @RenderBody()
-                        </div>
+            <!-- Main view -->
+            <section class="main-panel">
+                <div class="content-wrapper">
+                    <div class="row">
+                        @RenderBody()
                     </div>
-                    <!-- Footer -->
-                    @Html.Partial("_FooterPartial")
-                </section>
-            </div>
+                </div>
+                <!-- Footer -->
+                @Html.Partial("_FooterPartial")
+            </section>
         </div>
+    </div>
 
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="~/lib/select2/js/select2.js"></script>
@@ -60,6 +66,9 @@
     @*For wizard features*@
     <script src="~/lib/jquery-steps/jquery.steps.min.js"></script>
     <script src="~/js/wizard.js"></script>
+
+    <!--Style Toggle Scripts-->
+    <script src="~/js/style-toggle.js"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
