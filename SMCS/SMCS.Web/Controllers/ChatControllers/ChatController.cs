@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SMCS.Web.Models.Chat;
+using SMCS.Web.Controllers;
 
 namespace SMCS.Web.Controllers.ChatControllers
 {
-    public class ChatController : Controller
+    public class ChatController : SMCSController
     {
         public IActionResult Index() // To Do : Make the message input (the chat itself) stay as the same size, (make a scrollbar for chat, and put it in a wrapper)
         {
