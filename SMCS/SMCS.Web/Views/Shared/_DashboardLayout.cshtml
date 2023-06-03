@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" /><!--Custom css-->
     <!--Style Toggle Scripts-->
-    <script src="~/js/style-toggle.js"></script>
+    <script src="~/js/style-toggle.js" defer></script>
+    <link rel="stylesheet" href="~/css/style.css" id="theme-style" asp-append-version="true" /><!-- Default theme css -->
     <link rel="stylesheet" href="~/css/vendor.css" asp-append-version="true" /><!--Vendor css tot din template-->
     <link rel="stylesheet" href="~/lib/mdi/font/css/materialdesignicons.css" asp-append-version="true" /><!--Material Design Icons css-->
     <link rel="stylesheet" href="~/lib/font-awesome/css/fontawesome.css" asp-append-version="true" /><!--Font awesome css-->
@@ -59,8 +60,6 @@
     @*For wizard features*@
     <script src="~/lib/jquery-steps/jquery.steps.min.js"></script>
     <script src="~/js/wizard.js"></script>
-
-    
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

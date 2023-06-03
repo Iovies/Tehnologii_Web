@@ -1,14 +1,12 @@
-﻿document.addEventListener('DOMContentLoaded', function () {
-    // Check if theme preference is stored in local storage
-    var storedTheme = localStorage.getItem('theme');
+﻿// Check if theme preference is stored in local storage
+var storedTheme = localStorage.getItem('theme');
 
-    // Apply stored theme or default to light theme immediately
-    if (storedTheme === 'dark') {
-        applyDarkTheme();
-    } else {
-        applyLightTheme();
-    }
-});
+// Apply stored theme or default to light theme immediately
+if (storedTheme === 'dark') {
+    applyDarkTheme();
+} else {
+    applyLightTheme();
+}
 
 function applyLightTheme() {
     createThemeStylesheet('/css/style.css');
