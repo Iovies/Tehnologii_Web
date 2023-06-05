@@ -34,7 +34,7 @@ namespace SMCS.Web.Models.Auth
         [Required(AllowEmptyStrings = false)]
         [StringLength(1, MinimumLength = 1)]
         [DisplayName("ID Card Series")]
-        public char IDCardSeries { get; set; }
+        public string IDCardSeries { get; set; }
 
         [Required(AllowEmptyStrings = false)]
         [StringLength(8, MinimumLength = 8)]
@@ -59,12 +59,18 @@ namespace SMCS.Web.Models.Auth
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Please enter the password!")]
         [DataType(DataType.Password)]
-        [StringLength(30, MinimumLength = 8)]
+        [StringLength(256, MinimumLength = 8)]
         [RegularExpression(@"^([a-zA-Z0-9]{8,15})$", ErrorMessage = "Password must contain: " +
             "Minimum 8 characters atleast 1 UpperCase Alphabet, " +
             "1 LowerCase      Alphabet and 1 Number")]
         [DisplayName("Password")]
         public string Password { get; set; }
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Please enter the password!")]
+        [DataType(DataType.Password)]
+        [StringLength(256, MinimumLength = 8)]
+        [RegularExpression(@"^([a-zA-Z0-9]{8,15})$", ErrorMessage = "Password must contain: " +
+    "Minimum 8 characters atleast 1 UpperCase Alphabet, " +
+    "1 LowerCase      Alphabet and 1 Number")]
         public string ConfirmPassword { get; set; }
 
         [Required(AllowEmptyStrings = false)]

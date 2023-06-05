@@ -11,8 +11,8 @@ namespace SMCS.Data.DataAccess.Repositories
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly AppDataBaseContext _context;
-        public UnitOfWork(AppDataBaseContext context)
+        private readonly ApplicationDbContext _context;
+        public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
             Articles = new ArticleRepository(_context);

@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace SMCS.BusinessLogic.Interfaces
 {
-    public interface IServicesManager : IDisposable
+    public interface IServicesManager
     {
-        IUserService UserService { get; }
         IArticlesService ArticlesService { get; }
         ITicketsService TicketsService { get; }
         IChatService ChatService { get; }

@@ -12,17 +12,6 @@ namespace SMCS.Models.Models
     public class UserDbModel : IdentityUser
     {
         [Required(AllowEmptyStrings = false)]
-        [StringLength(50, MinimumLength = 5)]
-        [DisplayName("Username")]
-        public string UserName { get; set; }
-
-        [Required(AllowEmptyStrings = false)]
-        [DataType(DataType.EmailAddress)]
-        [EmailAddress]
-        [DisplayName("Email")]
-        public string Email { get; set; }
-
-        [Required(AllowEmptyStrings = false)]
         [StringLength(50, MinimumLength = 3)]
         [DisplayName("First Name")]
         public string FirstName { get; set; }
@@ -62,15 +51,6 @@ namespace SMCS.Models.Models
         [DataType(DataType.Date)]
         [DisplayName("Birth Date")]
         public DateTime BirthDate { get; set; }
-
-        [Required(AllowEmptyStrings = false,ErrorMessage = "Please enter the password!")]
-        [DataType(DataType.Password)]
-        [StringLength(30, MinimumLength = 8)]
-        [RegularExpression(@"^([a-zA-Z0-9]{8,15})$", ErrorMessage = "Password must contain: " +
-            "Minimum 8 characters atleast 1 UpperCase Alphabet, " +
-            "1 LowerCase      Alphabet and 1 Number")]
-        [DisplayName("Password")]
-        public string Password { get; set; }
 
         [Required(AllowEmptyStrings = false)]
         [DisplayName("Faculty")]

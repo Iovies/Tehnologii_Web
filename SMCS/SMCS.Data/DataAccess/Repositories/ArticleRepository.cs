@@ -13,15 +13,15 @@ namespace DataAccess.Repositories
 {
     public class ArticleRepository : Repository<ArticleDbModel>, IArticleRepository
     {
-        public AppDataBaseContext appContext
+        public ApplicationDbContext appContext
         {
             get
             {
-                return _context as AppDataBaseContext;
+                return _context as ApplicationDbContext;
             }
         }
 
-        public ArticleRepository(AppDataBaseContext context) : base(context)
+        public ArticleRepository(ApplicationDbContext context) : base(context)
         {
 
         }

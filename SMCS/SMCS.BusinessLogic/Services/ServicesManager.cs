@@ -1,5 +1,7 @@
-﻿using SMCS.BusinessLogic.Interfaces;
+﻿using Microsoft.AspNetCore.Identity;
+using SMCS.BusinessLogic.Interfaces;
 using SMCS.Data.DataAccess.Interfaces;
+using SMCS.Models.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +16,6 @@ namespace SMCS.BusinessLogic.Services
         {
             //UsersManager = new 
             TicketsService = new TicketService(unitOfWork);
-            UserService = new UserService(unitOfWork);
         }
 
         public IArticlesService ArticlesService { get; private set; }
@@ -22,12 +23,5 @@ namespace SMCS.BusinessLogic.Services
         public ITicketsService TicketsService { get; private set; }
 
         public IChatService ChatService { get; private set; }
-
-        public IUserService UserService { get; private set; }
-
-        public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

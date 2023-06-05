@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using SMCS.BusinessLogic.Interfaces;
 using SMCS.BusinessLogic.Services;
 using SMCS.Data.DataAccess.Interfaces;
 using SMCS.Data.DataAccess.Repositories;
 using SMCS.Data.DataBaseContext;
+using SMCS.Models.Models;
 
 namespace SMCS.Web
 {
@@ -16,23 +18,24 @@ namespace SMCS.Web
 
             // Add services to the container.
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-            builder.Services.AddDbContext<AppDataBaseContext>(options =>
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(connectionString));
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-            //builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
-            //    .AddEntityFrameworkStores<AppDataBaseContext>();
+            builder.Services.AddIdentity<UserDbModel, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
+                .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
-                .AddEntityFrameworkStores<AppDataBaseContext>()
-                .AddDefaultTokenProviders();
+            //builder.Services.AddIdentity<UserDbModel, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
+            //    .AddEntityFrameworkStores<AppDataBaseContext>()
+            //    .AddDefaultTokenProviders();
 
 
-            builder.Services.AddScoped<SignInManager<IdentityUser>>();
-            builder.Services.AddScoped<UserManager<IdentityUser>>();
+            builder.Services.AddScoped<SignInManager<UserDbModel>>();
+            builder.Services.AddScoped<UserManager<UserDbModel>>();
             builder.Services.AddScoped<RoleManager<IdentityRole>>();
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
             builder.Services.AddScoped<IServicesManager, ServicesManager>();
+            builder.Services.AddScoped<IPasswordHasher<UserDbModel>, PasswordHasher<UserDbModel>>();
 
             builder.Services.AddControllersWithViews();
             builder.Services.AddRazorPages();

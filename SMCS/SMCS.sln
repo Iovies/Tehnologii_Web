@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3.SMCS.Models", "SMCS.Model
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "4.SMCS.Data", "SMCS.Data\4.SMCS.Data.csproj", "{0F3EDEBC-87A6-41C0-8D83-2249D461285F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1SMCS", "SMCS\1SMCS.csproj", "{669FF1BC-26A3-41D1-88FD-C7CC0C4BAD25}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{0F3EDEBC-87A6-41C0-8D83-2249D461285F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F3EDEBC-87A6-41C0-8D83-2249D461285F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F3EDEBC-87A6-41C0-8D83-2249D461285F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{669FF1BC-26A3-41D1-88FD-C7CC0C4BAD25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{669FF1BC-26A3-41D1-88FD-C7CC0C4BAD25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{669FF1BC-26A3-41D1-88FD-C7CC0C4BAD25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{669FF1BC-26A3-41D1-88FD-C7CC0C4BAD25}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

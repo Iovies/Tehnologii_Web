@@ -12,15 +12,15 @@ namespace SMCS.Data.DataAccess.Repositories
 {
     public class DormRepository : Repository<DormDbModel>, IDormRepository
     {
-        public AppDataBaseContext appContext
+        public ApplicationDbContext appContext
         {
             get
             {
-                return _context as AppDataBaseContext;
+                return _context as ApplicationDbContext;
             }
         }
 
-        public DormRepository(AppDataBaseContext dbContext) : base(dbContext)
+        public DormRepository(ApplicationDbContext dbContext) : base(dbContext)
         {
         }
     }

@@ -19,4 +19,8 @@
     <ProjectReference Include="..\SMCS.BusinessLogic\2.SMCS.BusinessLogic.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\Identity\Pages\" />
+  </ItemGroup>
+
 </Project>

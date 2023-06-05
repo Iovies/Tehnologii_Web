@@ -11,15 +11,15 @@ namespace SMCS.Data.DataAccess.Repositories
 {
     public class RoomRepository : Repository<RoomDbModel>, IRoomRepository
     {
-        public AppDataBaseContext appContext
+        public ApplicationDbContext appContext
         {
             get
             {
-                return _context as AppDataBaseContext;
+                return _context as ApplicationDbContext;
             }
         }
 
-        public RoomRepository(AppDataBaseContext context) : base(context)
+        public RoomRepository(ApplicationDbContext context) : base(context)
         {
 
         }

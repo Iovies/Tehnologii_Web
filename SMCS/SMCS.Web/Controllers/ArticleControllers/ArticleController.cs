@@ -5,7 +5,7 @@ namespace SMCS.Web.Controllers.ArticleControllers
     public class ArticleController : Controller
     {
         [HttpGet]
-        [Route("Articles")]
+        [Route("article")]
         public IActionResult Index()
         {
             return View();

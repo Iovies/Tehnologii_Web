@@ -1,0 +1,200 @@
+﻿@page
+@using SMCS.Areas.Identity.Pages.Account;
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+@*
+<h1>@ViewData["Title"]</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <h2>Create a new account.</h2>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                <label asp-for="Input.Email">Email</label>
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+                <label asp-for="Input.Password">Password</label>
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+                <label asp-for="Input.ConfirmPassword">Confirm Password</label>
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+        </form>
+    </div>
+    <div class="col-md-6 col-md-offset-2">
+        <section>
+            <h3>Use another service to register.</h3>
+            <hr />
+            @{
+                if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                {
+                    <div>
+                        <p>
+                            There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">article
+                            about setting up this ASP.NET application to support logging in via external services</a>.
+                        </p>
+                    </div>
+                }
+                else
+                {
+                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                        <div>
+                            <p>
+                                @foreach (var provider in Model.ExternalLogins!)
+                                {
+                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                }
+                            </p>
+                        </div>
+                    </form>
+                }
+            }
+        </section>
+    </div>
+</div>*@
+
+
+<div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+        <div class="content-wrapper d-flex align-items-stretch auth multi-step-login auth-img-bg">
+            <div class="row flex-grow">
+                <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                    <div class="auth-form-transparent text-left p-3">
+                        @using (Html.BeginForm(FormMethod.Post, new { @class = "pt-3 form step-form", id = "registerForm"}))
+                        {
+                            <fieldset class="text-left">
+                                <div class="brand-logo">
+                                    <img src="/imgs/logo.svg" alt="logo">
+                                </div>
+                                <h4>New here?</h4>
+                                <h6 class="font-weight-light">Join us today! It takes only few steps</h6>
+                                <div class="form-group">
+                                    @Html.LabelFor(a => Model.Input.UserName, new {@class="align-items-center"})
+                                    @Html.TextBoxFor(a => Model.Input.UserName, new { @class = "form-control form-control-lg border-left-0", placeholder = "Username" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(a => Model.Input.Email, new {@class="align-items-center"})
+                                    @Html.TextBoxFor(a => Model.Input.Email, new { @class = "form-control form-control-lg border-left-0", placeholder = "Email" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(a => Model.Input.Password, new {@class="align-items-center"})
+                                    @Html.PasswordFor(a => Model.Input.Password, new { @class = "form-control form-control-lg border-left-0", placeholder = "Password" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(a => Model.Input.ConfirmPassword, new {@class="align-items-center"})
+                                    @Html.PasswordFor(a => Model.Input.ConfirmPassword, new { @class = "form-control form-control-lg border-left-0", placeholder = "Confirm Password" })
+                                </div>
+                                <button class="btn btn-primary next action-button float-start" type="button" name="next" value="Next">Next</button>
+                                <div class="text-center mt-4 font-weight-light">
+                                    Already have an account? <a href="@Url.Action("Login", "Account", new { area = "Identity" })" class="text-primary">Login</a>
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <div class="brand-logo">
+                                    <img src="/imgs/logo.svg" alt="logo">
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(a => Model.Input.FirstName)
+                                    @Html.TextBoxFor(a => Model.Input.FirstName, new { @class = "form-control form-control-lg border-left-0", placeholder = "First Name" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(a => Model.Input.LastName)
+                                    @Html.TextBoxFor(a => Model.Input.LastName, new { @class = "form-control form-control-lg border-left-0", placeholder = "Last Name" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(a => Model.Input.Patronymic)
+                                    @Html.TextBoxFor(a => Model.Input.Patronymic, new { @class = "form-control form-control-lg border-left-0", placeholder = "Patronymic" })
+                                </div>
+                                <button class="btn btn-primary next action-button float-start" type="button" name="next" value="Next">Next</button>
+                            </fieldset>
+                            <fieldset>
+                                <div class="brand-logo">
+                                    <img src="/imgs/logo.svg" alt="logo">
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(a => Model.Input.IDCardSeries)
+                                    @Html.TextBoxFor(a => Model.Input.IDCardSeries, new { @class = "form-control form-control-lg border-left-0", placeholder = "ID Card Series" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(a => Model.Input.IDCardNumber)
+                                    @Html.TextBoxFor(a => Model.Input.IDCardNumber, new { @class = "form-control form-control-lg border-left-0", placeholder = "ID Card Number" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(a => Model.Input.IDNP)
+                                    @Html.TextBoxFor(a => Model.Input.IDNP, new { @class = "form-control form-control-lg border-left-0", placeholder = "IDNP" })
+                                </div>
+                                <button class="btn btn-primary next action-button float-start" type="button" name="next" value="Next">Next</button>
+                            </fieldset>
+                            <fieldset>
+                                <div class="brand-logo">
+                                    <img src="/imgs/logo.svg" alt="logo">
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(a => Model.Input.PhoneNumber)
+                                    @Html.TextBoxFor(a => Model.Input.PhoneNumber, new { @class = "form-control form-control-lg border-left-0", placeholder = "Phone Number" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(a => Model.Input.BirthDate)
+                                    @Html.TextBoxFor(a => Model.Input.BirthDate, new { @class = "form-control form-control-lg border-left-0", placeholder = "Birth Date" })
+                                </div>
+                                <button class="btn btn-primary next action-button float-start" type="button" name="next" value="Next">Next</button>
+                            </fieldset>
+                            <fieldset>
+                                <div class="brand-logo">
+                                    <img src="/imgs/logo.svg" alt="logo">
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(a => Model.Input.Faculty)
+                                    @Html.TextBoxFor(a => Model.Input.Faculty, new { @class = "form-control form-control-lg border-left-0", placeholder = "Faculty" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(a => Model.Input.Speciality)
+                                    @Html.TextBoxFor(a => Model.Input.Speciality, new { @class = "form-control form-control-lg border-left-0", placeholder = "Speciality" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(a => Model.Input.Group)
+                                    @Html.TextBoxFor(a => Model.Input.Group, new { @class = "form-control form-control-lg border-left-0", placeholder = "Group" })
+                                </div>
+                                <input class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" type="submit" value="Register">
+                            </fieldset>
+                            @if (!ViewData.ModelState.IsValid)
+                            {
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                                        {
+                                            <li>@error.ErrorMessage</li>
+                                        }
+                                    </ul>
+                                </div>
+                            }
+                        }
+
+                    </div>
+                </div>
+                <div class="col-lg-6 register-half-bg d-flex flex-row">
+                    <p class="text-white font-weight-medium text-center flex-grow align-self-end">Copyright &copy; 2021 All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+        <!-- content-wrapper ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+</div>
+
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

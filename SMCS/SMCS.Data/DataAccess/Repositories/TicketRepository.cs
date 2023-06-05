@@ -14,15 +14,15 @@ namespace DataAccess.Repositories
 {
     public class TicketRepository : Repository<TicketDbModel>, ITicketRepository
     {
-        public AppDataBaseContext appContext
+        public ApplicationDbContext appContext
         {
             get
             {
-                return _context as AppDataBaseContext;
+                return _context as ApplicationDbContext;
             }
         }
 
-        public TicketRepository(AppDataBaseContext context) : base(context)
+        public TicketRepository(ApplicationDbContext context) : base(context)
         {
 
         }

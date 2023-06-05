@@ -1,0 +1,58 @@
+﻿@{
+}
+@model SMCS.Web.Models.Lodging.RequestModel
+
+<link href="~/lib/datatables/css/datatables.bootstrap4.css" rel="stylesheet" />
+
+<div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    @*Table Start*@
+                    <h4 class="card-title">Cereri</h4>
+                    <div class="row overflow-auto">
+                        <div class="col-12">
+                            <table id="order-listing" class="table" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr class="bg-primary text-white">
+                                        <th>Order #</th>
+                                        <th>Customer</th>
+                                        <th>Ship to</th>
+                                        <th>Base Price</th>
+                                        <th>Purchased Price</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{ // Request Template Start
+                                        foreach (var item in Model.requestModels)
+                                        {
+                                            <tr>
+                                                <td>@item.ID</td>
+                                                <td>@item.Name</td>
+                                                <td>@item.Description</td>
+                                                <td>$1500</td>
+                                                <td>$3200</td>
+                                                <td>
+                                                    @*Badges :  //badge, badge-info, badge-success, badge-warning, badge-danger*@
+                                                    <label class="badge badge-info">On hold</label>
+                                                </td>
+                                                <td class="text-right">
+                                                    <button class="btn btn-light" onclick="location.href='@Url.Action("requests","lodging",  item)'">
+                                                        <i class="mdi mdi-eye text-primary"></i>View
+                                                    </button>
+                                                    <button class="btn btn-light">
+                                                        <i class="mdi mdi-close text-danger"></i>Remove
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        } // Request Template Final
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    @*Table End*@
+                </div>
+            </div>
+        </div>

@@ -11,24 +11,21 @@ namespace SMCS.Data.DataAccess.Repositories
 {
     public class UsersRepository : Repository<UserDbModel>, IUsersRepository
     {
-        public AppDataBaseContext appContext
+        public ApplicationDbContext appContext
         {
             get
             {
-                return _context as AppDataBaseContext;
+                return _context as ApplicationDbContext;
             }
         }
 
-        public UsersRepository(AppDataBaseContext context) : base(context)
+        public UsersRepository(ApplicationDbContext context) : base(context)
         {
         }
 
         public UserDbModel GetByUsername(string username)
         {
-            var user = appContext.Users.FirstOrDefault(u => u.Email == username);
-            if (user == null)
-                return null;
-            return (UserDbModel)user;
+            return (UserDbModel)appContext.Users.FirstOrDefault(u => u.UserName == username);
         }
 
     }
