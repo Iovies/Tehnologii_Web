@@ -1,0 +1,72 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using SMCS.Models.Models;
+@inject SignInManager<UserDbModel> SignInManager
+@inject UserManager<UserDbModel> UserManager
+
+
+@if (SignInManager.IsSignedIn(User))
+{
+    var user = UserManager.GetUserAsync(User).Result;
+    <script>
+        function updateProfilePicture(profilePic) {
+            $('#profilePicture').attr('src', profilePic);
+        }
+
+        var profilePic = '';
+        var isSignedIn = '@(SignInManager.IsSignedIn(User) ? "true" : "false")';
+        if (isSignedIn === 'true') {
+            $.ajax({
+                url: '@Url.Action("GetUserAvatar", "Profile")',
+                data: { userID: '@user.Id' },
+                method: 'GET',
+                success: function (response) {
+                    profilePic = response;
+                    // Actualizează imaginea de profil
+                    updateProfilePicture(profilePic);
+                },
+                error: function () {
+                    console.log('Error occurred while getting the user avatar.');
+                }
+            });
+        }
+    </script>
+
+    <li class="nav-item nav-profile dropdown">
+        <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="nav-profile-container">
+                <div class="nav-profile-text">
+                    <p class="mb-1">@user.FirstName @user.LastName</p>
+                </div>
+                <div class="nav-profile-img">
+                    <img src="~/imgs/faces-clipart/pic-1.png" alt="image" id="profilePicture" />
+                </div>
+            </div>
+        </a>
+        <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
+            <a class="dropdown-item" href="#">
+                <i class="mdi mdi-cached me-2 text-success"></i> Activity Log
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="@Url.Action("Logout", "Account", new {area = "Identity"})">
+                <i class="mdi mdi-power me-2"></i> Logout
+            </a>
+        </div>
+    </li>
+    <script>
+        $(document).ready(function () {
+            if (isSignedIn && profilePic) {
+                updateProfilePicture(profilePic);
+            }
+        });
+    </script>
+}
+else
+{
+    <li class="nav-item">
+        <a class="nav-link" asp-area="Identity" asp-page="/Account/Register">Register</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" asp-area="Identity" asp-page="/Account/Login">Login</a>
+    </li>
+}
+

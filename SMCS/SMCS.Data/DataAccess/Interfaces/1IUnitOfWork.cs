@@ -14,6 +14,7 @@ namespace SMCS.Data.DataAccess.Interfaces
         IFloorRepository Floors { get; }
         IRoomRepository Rooms { get;}
         IUsersRepository Users { get; }
+        IContentTrackerRepository ContentTrackers { get; }
         int Complete();
     }
 }

@@ -29,6 +29,9 @@ namespace SMCS
 
 
             //dependency injection
+            builder.Services.AddScoped<ITicketsService, TicketService>();
+            builder.Services.AddScoped<IUserService, UserService>();
+            builder.Services.AddScoped<IContentManager, ContentManager>();
             builder.Services.AddScoped<UserManager<UserDbModel>>();
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
             builder.Services.AddScoped<IServicesManager, ServicesManager>();

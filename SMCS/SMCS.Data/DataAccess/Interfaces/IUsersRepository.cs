@@ -10,5 +10,7 @@ namespace SMCS.Data.DataAccess.Interfaces
     public interface IUsersRepository:IRepository<UserDbModel>
     {
         public UserDbModel GetByUsername(string username);
+        public Guid GetIDByUsername(string username);
+        public UserDbModel Get(string id);
     }
 }

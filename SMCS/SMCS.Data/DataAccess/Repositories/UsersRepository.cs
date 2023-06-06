@@ -28,5 +28,14 @@ namespace SMCS.Data.DataAccess.Repositories
             return (UserDbModel)appContext.Users.FirstOrDefault(u => u.UserName == username);
         }
 
+        public Guid GetIDByUsername(string username)
+        {
+            return Guid.Parse(appContext.Users.FirstOrDefault(u => u.UserName == username).Id);
+        }
+
+        public UserDbModel Get(string id)
+        {
+            return appContext.Users.FirstOrDefault(u => u.Id == id);
+        }
     }
 }

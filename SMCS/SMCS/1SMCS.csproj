@@ -2549,4 +2549,12 @@
     <UpToDateCheckInput Remove="Views\Shared\_HomeNavBarPartial.cshtml" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\imgs\SMCS\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\imgs\samples\weather.svg" />
+  </ItemGroup>
+
 </Project>

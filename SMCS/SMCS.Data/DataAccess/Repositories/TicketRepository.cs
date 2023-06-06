@@ -27,10 +27,14 @@ namespace DataAccess.Repositories
 
         }
 
-        public ILookup<DateTime,TicketDbModel> GetTicketsGroupedByDate()
+        public IEnumerable<IGrouping<DateTime, TicketDbModel>> GetTicketsGroupedByDate()
         {
-            return appContext.Tickets.ToLookup(x => x.Created.Date);
+            return appContext.Tickets.GroupBy(t => t.Created.Date).AsEnumerable();
         }
 
+        public IEnumerable<TicketDbModel> GetTicketPagination(int count, int page)
+        {
+            return appContext.Tickets.Skip((page - 1) * count).Take(count);
+        }
     }
 }

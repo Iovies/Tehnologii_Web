@@ -21,6 +21,7 @@ namespace SMCS.Data.DataAccess.Repositories
             Floors = new FloorRepository(_context);
             Rooms = new RoomRepository(_context);
             Users = new UsersRepository(_context);
+            ContentTrackers = new ContentTrackerRepository(_context);
         }
 
         public IArticleRepository Articles { get; private set; }
@@ -34,6 +35,8 @@ namespace SMCS.Data.DataAccess.Repositories
         public IRoomRepository Rooms { get; private set; }
 
         public IUsersRepository Users { get; private set; }
+
+        public IContentTrackerRepository ContentTrackers { get; private set; }
 
         public int Complete()
         {

@@ -228,6 +228,32 @@ namespace SMCS.Data.Migrations
                     b.ToTable("Chats");
                 });
 
+            modelBuilder.Entity("SMCS.Models.Models.ContentTrackerDbModel", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Href")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LacalPath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Uploaded")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ContentTrackers");
+                });
+
             modelBuilder.Entity("SMCS.Models.Models.DormDbModel", b =>
                 {
                     b.Property<Guid>("Id")

@@ -1,89 +1,90 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-@model SMCS.Web.Models.Tickets.ViewTicketsViewModel
+﻿@using SMCS.Models.Models;
+@model IEnumerable<IGrouping<DateTime, TicketDbModel>>
+
 <div class="col-lg-12">
     <div class="card">
         <div class="card-body">
-        <div class="d-sm-flex pb-4 mb-4 border-bottom">
-            <div class="d-flex align-items-center">
-            <h5 class="page-title mb-n2">Open Tickets</h5>
-            <p class="mt-2 mb-1 ms-3 text-muted">230 Tickets</p>
+            @*<div class="d-sm-flex pb-4 mb-4 border-bottom">
+                <div class="d-flex align-items-center">
+                    <h5 class="page-title mb-n2">Open Tickets</h5>
+                    <p class="mt-2 mb-1 ms-3 text-muted">230 Tickets</p>
+                </div>
+                <form class="ms-auto d-flex pt-2 pt-md-0 align-items-stretch w-50 justify-content-end">
+                    <input type="text" class="form-control w-50" placeholder="Search">
+                    <button type="submit" class="btn btn-gradient-success no-wrap ms-4">Search Ticket</button>
+                </form>
             </div>
-            <form class="ms-auto d-flex pt-2 pt-md-0 align-items-stretch w-50 justify-content-end">
-            <input type="text" class="form-control w-50" placeholder="Search">
-            <button type="submit" class="btn btn-gradient-success no-wrap ms-4">Search Ticket</button>
-            </form>
-        </div>
-        <div class="nav-scroller">
-            <ul class="nav nav-tabs tickets-tab-switch" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link rounded active" id="open-tab" data-bs-toggle="tab" href="#open-tickets" role="tab" aria-controls="open-tickets" aria-selected="true">Open Tickets <div class="badge">13</div></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link rounded" id="pending-tab" data-bs-toggle="tab" href="#pending-tickets" role="tab" aria-controls="pending-tickets" aria-selected="false">Pending Tickets <div class="badge">50 </div></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link rounded" id="onhold-tab" data-bs-toggle="tab" href="#onhold-tickets" role="tab" aria-controls="onhold-tickets" aria-selected="false">On-hold Tickets <div class="badge">29 </div>
-                </a>
-            </li>
-            </ul>
-        </div>
-        <div class="tab-content border-0 tab-content-basic">
-            @{
-                //I need here to group tickets by date and then display them
-                for (int i = 0; i < Model.Tickets.Count(); i++)
-                {
-                    <div class="tickets-date-group"><i class="mdi mdi-calendar"></i>Tuesday, 21 May 2019 </div>
-                            <a href="@Url.Action($"viewticket", "ticket",new {id = Model.Tickets[i].TicketNumber})" class="tickets-card row">
-                        <div class="tickets-details col-lg-8 col-12">
-                            <div class="wrapper">
-                                        <h5>@Model.Tickets[i].TicketNumber.ToString() - @Model.Tickets[i].TicketTitle.ToString()</h5>
-                                <div class="badge badge-gradient-success">New</div>
-                            </div>
-                            <div class="wrapper text-muted d-none d-md-block">
-                                <span>Assigned to</span>
-                                <img class="assignee-avatar" src="/imgs/faces/face13.jpg" alt="profile image">
-                                <span>Brett Gonzales</span>
-                                <span><i class="mdi mdi-clock-outline"></i>03:34AM</span>
-                            </div>
-                        </div>
-                        <div class="ticket-float col-lg-2 col-sm-6 d-none d-md-block">
-                            <img class="img-xs rounded-circle" src="/imgs/faces/face16.jpg" alt="profile image">
-                            <span class="text-muted">Frank Briggs</span>
-                        </div>
-                    </a>
+            <div class="nav-scroller">
+                <ul class="nav nav-tabs tickets-tab-switch" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link rounded active" id="open-tab" data-bs-toggle="tab" href="#open-tickets" role="tab" aria-controls="open-tickets" aria-selected="true">Open Tickets <div class="badge">13</div></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link rounded" id="pending-tab" data-bs-toggle="tab" href="#pending-tickets" role="tab" aria-controls="pending-tickets" aria-selected="false">Pending Tickets <div class="badge">50 </div></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link rounded" id="onhold-tab" data-bs-toggle="tab" href="#onhold-tickets" role="tab" aria-controls="onhold-tickets" aria-selected="false">
+                            On-hold Tickets <div class="badge">29 </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>*@
+            <div class="tab-content border-0 tab-content-basic">
+                @{
+                    foreach (var item in Model)
+                    {
+                        <div class="tickets-date-group"><i class="mdi mdi-calendar"></i>@item.Key.ToLongDateString() </div>
+                        foreach (var ticket in item)
+                        {
+                            <a href="@Url.Action($"viewticket", "ticket",new {id = ticket.ID})" class="tickets-card row">
+                                <div class="tickets-details col-lg-8 col-12">
+                                    <div class="wrapper">
+                                        <h5>@ticket.ID.ToString().Substring(0,8) - @ticket.TicketTitle.ToString()</h5>
+                                        <div class="badge badge-gradient-success">New</div>
+                                    </div>
+                                    @* //<div class="wrapper text-muted d-none d-md-block">
+                                    //    <span>Assigned to</span>
+                                    //    <img class="assignee-avatar" src="/imgs/faces/face13.jpg" alt="profile image">
+                                    //    <span>Brett Gonzales</span>
+                                    //    <span><i class="mdi mdi-clock-outline"></i>03:34AM</span>
+                                    //</div>*@
+                                </div>
+                                @*//<div class="ticket-float col-lg-2 col-sm-6 d-none d-md-block">
+                                //    <img class="img-xs rounded-circle" src="/imgs/faces/face16.jpg" alt="profile image">
+                                //    <span class="text-muted">Frank Briggs</span>
+                                //</div>*@
+                            </a>
+                        }
+                    }
                 }
-            }
-         </div>
-        <nav class="mt-4">
-            <ul class="pagination">
-            <li class="page-item">
-                <a class="page-link" href="#">
-                <i class="mdi mdi-chevron-left"></i>
-                </a>
-            </li>
-            <li class="page-item active">
-                <a class="page-link" href="#">1</a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="#">2</a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="#">3</a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="#">4</a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="#">
-                <i class="mdi mdi-chevron-right"></i>
-                </a>
-            </li>
-            </ul>
-        </nav>
+            </div>
+            
+            @*<nav class="mt-4">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="#">
+                            <i class="mdi mdi-chevron-left"></i>
+                        </a>
+                    </li>
+                    <li class="page-item active">
+                        <a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">2</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">3</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">4</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">
+                            <i class="mdi mdi-chevron-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>*@
         </div>
     </div>
-    </div>
+</div>

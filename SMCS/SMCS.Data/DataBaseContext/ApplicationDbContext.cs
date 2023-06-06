@@ -23,6 +23,7 @@ namespace SMCS.Data.DataBaseContext
         public DbSet<RoomDbModel> Rooms { get; set; }
         public DbSet<ChatDbModel> Chats { get; set; }
         public DbSet<MessageDbModel> Messages { get; set; }
+        public DbSet<ContentTrackerDbModel> ContentTrackers { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

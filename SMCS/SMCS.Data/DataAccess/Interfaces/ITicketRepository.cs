@@ -11,6 +11,7 @@ namespace SMCS.Data.DataAccess.Interfaces
 {
     public interface ITicketRepository : IRepository<TicketDbModel>
     {
-        public ILookup<DateTime, TicketDbModel> GetTicketsGroupedByDate();
+        public IEnumerable<IGrouping<DateTime, TicketDbModel>> GetTicketsGroupedByDate();
+        public IEnumerable<TicketDbModel> GetTicketPagination(int count, int page);
     }
 }
